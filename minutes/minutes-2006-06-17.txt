@@ -1,0 +1,75 @@
+
+R News
+minutes of editorial board meeting
+participants: Paul Murrell, John Fox, Torsten Hothorn, 
+              Fritz Leisch, Kurt Hornik
+Vienna, 2006-06-17
+
+ *  we want to change the name to something more `serious', 
+    tentativelly `The R Journal' (-> post a RFC to r-devel <PM>)
+
+    The journal might have a section `R News'. Maybe having `Regular
+    Articles' and `Short Communications' (the latter only editor-reviewed),  
+    `White Papers' (more technical
+    documentation, e.g., Brian's and Paul's paper on internationalization,
+    i.e., documenting features in _base_ R). Featured articles (with
+    dicussions)? Book reviews. Columns (R Help Desk, Programmers Niche). 
+    News (conference announcements).
+
+    We still want to offer a platform for R News alike papers. 
+
+ *  conflicts with JSS? No, because we focus only on the R community.
+    Different writing styles. Authors can assume the reader to know R very well.
+
+ *  change in layout: switch to one-column layout (portrait) or stay
+    two-column (landscape)? -> give it a try <PM>
+
+ *  guidelines for authors / editors:
+
+    - guidelines for authors send to reviewers as well (draft: <JF>)
+
+    - checklist for reviewers and editors (draft: <JF>)
+
+    - encourage use of Sweave much more stronger
+
+    - provide data and code (if possible)
+
+    - guidelines for book reviews
+
+    - start with guidelines for editors based on share/README (<JF>)
+
+ *  book reviews: semi-automated procedure? Coordinate with JSS?
+
+ *  software reviews? Reviews on packages? Reply by package authors? Not
+    now, maybe later. Not the TAS-way.
+
+ *  set up a list of interesting `useR! 2006' contributions <TH>
+
+ *  Kurt: send out information on R News whenever a package is uploaded to
+    CRAN. Policy? Selection procedure? Cc package uploads to rnews-editors.
+    (and so some list of CRAN task view maintainers). RSS feeds?
+
+ *  Editorial board member 2007. Vince Carey, Tim Hesterberg, Marc Schwarz,
+    Patrick Burns.
+    France / Spain / Brazil / Africa / Japan? Students of ?
+
+    Ask R Foundation <PM>!
+
+ *  indexing: Searchable contents 
+    (google site search, ask Duncan Murdoch -> <PM>). 
+    CIS? Bibtex-database? 
+
+    Directory of open access journals - [ Diese Seite übersetzen ]
+    Categorized, searchable links to free, full text, quality controlled
+    scientific and scholarly journals.
+    www.doaj.org/
+
+    Nelson HF Beebe's Bibliographies Page - [ Diese Seite übersetzen ]
+    List of 100 journals, with completed and corrected bibliographies and
+    links to the homepages.
+    www.math.utah.edu/~beebe/bibliographies.html
+
+    SCOPUS (www.scopus.com)
+
+ *  <TH>: ask David to evaluate an open-source editor system (Diploma-thesis).
+    (already got a positive reply from David)

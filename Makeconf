@@ -1,0 +1,43 @@
+ISSUE   = Rnews_$(VERSION)
+
+SHAREDIR = ../share
+TEXI2DVI = $(SHAREDIR)/texi2dvi
+
+LTX2DVI = $(TEXI2DVI) -I $(SHAREDIR)
+LTX2PDF = $(TEXI2DVI) -I $(SHAREDIR) --pdf
+DEPENDS = *.tex $(SHAREDIR)/Rnews.sty
+
+.SUFFIXES: 
+.SUFFIXES: .dvi .pdf .ps .tex
+
+all: pdf
+dvi: $(ISSUE).dvi
+pdf: $(ISSUE).pdf
+ps: $(ISSUE).ps
+
+.tex.dvi:
+	$(LTX2DVI) $<
+.tex.pdf:
+	$(LTX2PDF) $<
+.dvi.ps:
+	TEXINPUTS="$(SHAREDIR):$${TEXINPUTS}" dvips $< -o $@
+
+$(ISSUE).dvi: $(DEPENDS)
+$(ISSUE).pdf: $(DEPENDS)
+
+$(SHAREDIR)/Rnews.sty: $(SHAREDIR)/Rnews.dtx
+	@cd $(SHAREDIR) && make all
+
+changedPackages.tex: changedPackages.in pkg2lat.pl
+	@echo "updating $@"
+	@(OPWD=`pwd`; \
+	  CONTRIB="/usr/local/src/apps/stat/R/contrib"; \
+	  if test -d $${CONTRIB}; then \
+	    cd $${CONTRIB}; \
+	    $${OPWD}/pkg2lat.pl \
+	      `cat $${OPWD}/changedPackages.in` > $${OPWD}/$@; \
+	  fi)
+
+clean:
+	@$(SHAREDIR)/texclean $(ISSUE).tex
+	@rm -f $(ISSUE).brf $(ISSUE).out $(ISSUE).pdf $(ISSUE).ps.gz

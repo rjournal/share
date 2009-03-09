@@ -1,0 +1,61 @@
+
+R News Editors' Meeting
+12 August 2008
+Present: D. Bates, P. Dalgaard, J. Fox (chair), T. Hothorn, F. Leisch
+
+MINUTES
+
+(1) Transition to the R Project Journal
+
+We decided the following:
+
+(a) The transition from R News to a journal should coincide with the first
+issue of 2009, which will probably be published in April.
+
+(b) The journal should be named "The R Project Journal."
+
+(c) The journal should retain the current R News format; Fritz will take
+care of adjusting the R News LaTeX style to reflect the new name.
+
+(d) We will continue to manage the journal via an svn archive.
+
+(e) We should distinguish clearly between refereed content, including
+columns, and news items; the latter will be collected in a section labelled
+"R News."
+
+(f) Each submission, including columns, will be handled by an editor and
+will be reviewed by the editor and one external referee or by two external
+referees.
+
+(g) We will publish the R Project Journal both as a single PDF file and as
+individual PDFs for the separate articles, linked to the contents web page.
+Torsten will look into automating this process.
+
+(h) John will investigate getting the journal indexed.
+
+(2) Composition of the editorial board
+
+(a) We decided that the R Project Journal should continue with a rotating
+editorship; as before, a newly recruited editor will serve as associate
+editor for two years and as editor-in-chief in the third year. The former
+editor-in-chief will now remain for a fourth year, however, primarily to
+assist and advise the editor-in-chief.
+
+(b) We discussed recruiting a new associate editor for 2009 and agreed that
+John would ask Heather Turner of the University of Warwick. (Heather has
+agreed to join the editorial board.)
+
+(3) Regularizing the format of submissions
+
+We agreed that submissions should include LateX source, all necessary
+additional files (e.g., graphics, BibTeX), and a PDF file, all in R Project
+Journal format.
+
+(4) Survey of users
+
+We agreed that a web survey of readers is a good idea in principle, and
+asked that Vince, who proposed a survey, suggest what questions are to be
+included.
+
+
+

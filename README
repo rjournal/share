@@ -1,0 +1,70 @@
+Directory 'share' contains lots of useful stuff, including
+
+  Rnews.dtx	LaTeX source for generating code and documentation for
+		Rnews.sty (happens automatically).
+		
+  Rnews.bib	The .bib database with entries for all "regular"
+		articles as well as the help desk and programmers' niche
+		columns.
+
+and the following scripts:
+
+  news2ltx.pl	Use on the R NEWS file as a first approximation of the
+		changes-R column.
+		
+  pkg2ltx.pl	Use on the .tar.gz source files of the "new" CRAN
+		packages as a first approximation of the changes-CRAN
+		column.  The list of new packages needs to be queried
+		from Kurt.Hornik@R-project.org, and added to
+		changes-CRAN.dat.
+		
+  toc2bib.pl	Use on the respective Rnews_$year-$number files for a
+		first approximation of the additional .bib entries for
+		Rnews.bib. (In my experience this is very imperfect, omitting articles;
+		check carefully! JF)
+
+=====================
+Pre-release instructions:
+=====================
+
+* Prepare final draft of complete issue one or two weeks prior to
+  the planned release date.  This gives all of editorial board a 
+  chance to look over the draft.
+
+* Give all authors a chance to check final proofs.  This can be done
+  in the last few days before release.  Make it clear to authors that
+  only minor corrections can be made at this stage AND that it is
+  NOT a chance to review other articles.
+
+=====================
+Release instructions:
+=====================
+
+* Commit the file
+
+	Rnews_$year-$number.pdf
+
+  to https://svn.R-project.org/R-project-web/trunk/doc/Rnews/.
+
+  Add copy as Rnews_$year-$number-1.pdf 
+  (to cater for possible errata in future).
+
+* Modify and commit 
+  https://svn.R-project.org/R-project-web/trunk/doc/Rnews/index.html
+
+* Update and commit ./Rnews.bib, using toc2bib.pl as a start.
+
+* Copy Rnews.bib to
+  https://svn.R-project.org/R-project-web/trunk/doc/Rnews/bib.  Run make
+  in this place as well, and commit the new stuff.
+
+* Get R Homepage changed to announce new R issue in 'News' section.
+
+The files committed to the R-project-web SVN will automagically make it
+into the R web pages.
+
+* Send email to R-announce@R-project.org (including URL of current issue)
+
+* Update INDEX file to indicate articles have been published.
+
+* SVN move published articles from Accepted/ to Published/
