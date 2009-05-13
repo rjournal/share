@@ -1,3 +1,134 @@
+## <issue 2009-1>
+2009-05-08 ExPD2D diffusionMap
+2009-05-07 mixAK
+2009-05-06 DSpat FSelector RgoogleMaps
+2009-05-05 ClinicalRobustPriors SEMModComp
+2009-05-04 RxCEcolInf SMIR elec partDSA
+2009-04-29 RSiteSearch parcor
+2009-04-28 emplik2 mcsm medAdherence
+2009-04-26 ez plan
+2009-04-23 CHNOSZ Multiclasstesting binarySimCLF
+2009-04-22 MixSim RDS VarianceGamma
+2009-04-21 BAMD
+2009-04-20 xterm256
+2009-04-19 gputools localdepth mapReduce
+2009-04-17 RMTstat diseasemapping powerSurvEpi
+2009-04-16 EMJumpDiffusion FBN FD OrdFacReg
+2009-04-15 EngrExpt OrdMonReg futile hash influence.ME lcd markerSearchPower plspm tawny uniCox
+2009-04-14 HaploSim mc2d
+2009-04-04 ascii
+2009-04-03 canvas orthogonalsplinebasis
+2009-04-01 sabreR
+2009-03-31 AquaEnv
+2009-03-30 qtlbook
+2009-03-29 tmvtnorm
+2009-03-28 ModelMap alphahull polydect
+2009-03-27 arulesNBMiner bethel fast mvgraph primer tiger
+2009-03-26 BMN WriteXLS isotone
+2009-03-25 lcda
+2009-03-24 dyad sisus
+2009-03-23 HadoopStreaming LambertW
+2009-03-21 vrmlgen
+2009-03-20 rbenchmark
+2009-03-19 automap mixRasch
+2009-03-18 Animal metacor
+2009-03-16 phmm
+2009-03-15 SpectralGEM
+2009-03-14 TeachingSampling aspects
+2009-03-13 spcosa spuRs
+2009-03-12 Oncotree jointDiag
+2009-03-11 BayesX
+2009-03-10 plotpc spatialsegregation
+2009-03-09 AIGIS
+2009-03-08 Rcsdp TRIANG
+2009-03-06 SGCS ccems sdtoolkit
+2009-03-05 rngwell19937
+2009-03-04 BGSIMD tslars
+2009-03-03 OAIHarvester PhViD lmomRFA sparseLDA tlemix
+2009-03-02 BAS mhsmm
+2009-03-01 RSurvey fpow
+2009-02-28 ROptEstOld
+2009-02-27 DTK
+2009-02-26 DAKS metaMA
+2009-02-25 introgress labeltodendro rgrs
+2009-02-24 pedigree
+2009-02-21 CvM2SL1Test
+2009-02-20 RcmdrPlugin.survival
+2009-02-18 afc mvtBinaryEP
+2009-02-17  RKML SVGAnnotation
+2009-02-16 fechner fitdistrplus
+2009-02-15 vowels
+2009-02-12 FKF PMA clues gogarch
+2009-02-11 NMRS pspearman
+2009-02-09 cellVolumeDist irtProb lmec survcomp
+2009-02-08 rtv
+2009-02-07 nleqslv
+2009-02-05 flashClust
+2009-02-03 MAMSE dynCorr ucminf
+2009-01-30 BayesDA GFMaps Stem
+2009-01-27 MCMCglmm
+2009-01-26 mmcm operators sdcTable
+2009-01-23 ScottKnott hacks
+2009-01-21 bootspecdens
+2009-01-20 Depela clinsig fit4NM rela robCompositions x12
+2009-01-17 remMap
+2009-01-16 YourCast gof
+2009-01-15 gcExplorer fishmethods
+2009-01-14 GRRGI bayesclust penalizedSVM
+2009-01-09 zyp
+2009-01-08 ConvCalendar rcdklibs
+2009-01-03 multicore
+2008-12-30 CADFtest RQDA rSymPy
+2008-12-23 LearnEDA RcmdrPlugin.qcc bayesCGH
+2008-12-21 Formula kst
+2008-12-18 crawl longRPart
+2008-12-17 wasim
+2008-12-13 prefmod truncnorm
+2008-12-11 agreement archetypes graphicsQC
+2008-12-09 scout
+2008-12-06 MCE
+2008-12-05 amei
+2008-12-04 GridR SDaA hexbin
+2008-12-01 rsm
+2008-11-27 SubpathwayMiner lmodel2
+2008-11-26 RcmdrPlugin.orloca minxent rconifers
+2008-11-24 grpreg hyperdirichlet selectiongain
+2008-11-21 StatFingerprints
+2008-11-19 RcmdrPlugin.SurvivalT
+2008-11-17 beanplot blockmodeling
+2008-11-16 powerGWASinteraction
+2008-11-14 dlmap yacca
+2008-11-13 aylmer
+2008-11-10 LIM exams
+2008-11-09 corcounts
+2008-11-08 foba muscor spls
+2008-11-07 ipptoolbox
+2008-11-06 FactoClass Rcpp SweaveListingUtils
+2008-11-04 BSagri latticist reporttools
+2008-11-03 TSPostgreSQL TSfame TShistQuote TSodbc
+2008-10-28 RHRV PairViz Rlabkey WaveCGH
+2008-10-27 SimComp depth
+2008-10-26 sda
+2008-10-25 imprProbEst simone
+2008-10-23 timeDate timeSeries
+2008-10-21 asympTest
+2008-10-20 REQS
+## 2009-04-26 Packages 'DDHFm', 'LLN', 'Rlab', 'intcox', 'mlica', 'mota',
+##   'sdtalt', 'survBayes', and 'waveclock' were moved to the Archive.
+## 2008-10-27 Package 'Rmetrics' was moved to the Archive.
+## 2009-04-15 Package 'Matrix' is recommended for R >= 2.9.0.
+## 2009-03-11 Frontend 'gnomeGUI' was	moved to the Archive.
+## 2009-03-01 Packages 'ProbeR', 'SparseLogReg', 'classPP', 'gllm' and
+##   'mlmmm' were moved to the Archive.
+## 2009-02-23 Packages 'ProbForecastGOP', 'Rmdr', 'knnFinder', 'pARtial'
+##   and 'rggm' were moved to the Archive.
+## 2009-02-20 Package 'femmeR' was moved to the Archive.
+## 2009-01-26 Package 'GeneTS' was moved to the Archive.
+## 2009-01-22 Packages 'caretLSF' and 'caretNWS' were moved to the Archive.
+##   Bundle 'SciViews' was moved to the Archive and is replaced by its
+##   unbundled packages ('svGUI', 'svIDE', 'svMisc', and 'svSocket').
+## </issue>
+
 ## <issue 2008-2>
 2008-10-19 gmm
 2008-10-17 SGP
