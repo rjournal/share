@@ -52,7 +52,7 @@
 \renewcommand{\title}[1]{\def\Rnews@title{#1}}
 \newcommand{\subtitle}[1]{\def\Rnews@subtitle{#1}}
 \newenvironment{article}{%
-  \author{}\title{}\subtitle{}}{\end{multicols}}
+  \author{}\title{}\subtitle{}\abstract{}}{\end{multicols}}
 \renewcommand{\maketitle}{
   \begin{multicols}{2}[\chapter{\Rnews@title}\refstepcounter{chapter}][3cm]
     \ifx\empty\Rnews@subtitle\else\noindent\textbf{\Rnews@subtitle}
