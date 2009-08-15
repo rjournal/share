@@ -1,0 +1,418 @@
+\title{Style Guide for The R Journal}
+
+\author{The R Journal Editors}
+
+\maketitle
+
+\abstract{
+\emph{The R Journal} is compiled using \LaTeX{} and authors are required
+to submit their articles as \LaTeX{} documents. Here we provide authors
+with information for preparing submissions to the \emph{Journal}.
+}
+
+\section{Introduction}
+
+\emph{The R Journal} is the refereed journal of the \R{} Project for Statistical
+Computing \citep{R:Ihaka+Gentleman:1996}.
+It features short to medium length articles covering topics
+that might be of interest to users or developers of \R{}, including:
+
+\begin{description}
+
+\item[Add-on packages:] Short introductions to or reviews of \R{} extension
+packages.
+
+\item[Programmer's Niche:] Hints for programming in \R{}.
+
+\item[Hints for newcomers:] Explaining aspects of \R{} that might not be
+obvious from reading the manuals and FAQs.
+
+\item[Applications:] Examples of analyzing data with \R{}.
+
+\end{description}
+
+Continuing from \emph{R News}, \emph{The R Journal} will also have a news section,
+including information on:
+
+\begin{description}
+
+\item[Changes in R:] New features of the latest release.
+
+\item[Changes on CRAN:] New add-on packages, manuals, binary distributions,
+mirrors, etc.
+
+\item[Conferences:] Upcoming \R{}-related conferences and reports from
+conferences.
+
+\end{description}
+
+\emph{The R Journal} intends to reach a wide audience and have a fast-track
+but thorough review process. Papers are expected to be reasonably short,
+clearly written, not too technical, and of course focused on \R{}.
+
+The purpose of this document is to describe to prospective authors how
+to prepare a submission for \emph{The R Journal}.
+
+\section{Preparing a submission}
+
+Please send submissions to regular columns (Programmer's Niche, Help Desk)
+to the respective column editor, all other submissions to the Editor-in-Chief
+or a member of the editorial board.
+
+The following files provide a template for preparing an article for submission
+to \emph{The R Journal}:
+
+\begin{description}
+
+\item[\LaTeX{} style file:] \file{RJournal.sty}.
+
+\item[Master \LaTeX{} file:] \file{RJwrapper.tex}.\\
+Include this file with your
+submission; all \LaTeX{} packages required by your article should be
+loaded in this file. \file{RJwrapper.tex} includes the file
+(\file{RJtemplate.tex}), which is not itself a complete
+\LaTeX{} document (it has no \verb|\begin{document}| or
+\verb|\end{document}|).
+
+\item[Article template:] \file{RJtemplate.tex}.\\
+Replace \file{RJtemplate.tex} with a file containing
+your article, naming the file according to the author's or authors' surnames. For example,
+an article by John Chambers would be in the file \file{Chambers.tex}, and
+one by Bill Venables and Brian Ripley in the file \file{VenablesRipley.tex}.
+
+\end{description}
+
+Running {\tt pdflatex} on \file{RJwrapper.tex} a couple of times
+(to get the figure references right) will produce
+\file{RJwrapper.pdf} which shows how this template file would be
+typeset in an \emph{R Journal} issue.
+
+\section{Language}
+
+Articles in \emph{The R Journal} are written in English. We accept British and American
+spelling along with other national variations. We encourage authors for whom English is
+not their first language to have their papers edited by a competent copy-editor. We
+encourage all authors to conform to accepted norms of grammar and style, and to avoid
+sexist language, such as the use of `he' for individuals of indefinite gender.
+
+\section{Marking text}
+
+The \pkg{RJournal} \LaTeX{} package provides roughly the same commands for marking
+words and phrases as does Texinfo (but note that the \LaTeX{} special
+characters still need special treatment). Please use these commands and the other
+mark-up facilities described in this section rather than attempting to format
+output and other elements visually. Unless it is absolutely necessary, please refrain from
+introducing additional idiosyncratic mark-up---for example, for programming languages.
+
+The commands provided are:
+
+\begin{description}
+
+\item[\code{$\backslash$ \\code\{\var{sample-code}\}}]
+indicates text that is a literal example of a piece of a program.
+For example, \verb|\code{rows <- nrow(X)}| is typeset as
+\code{rows <- nrow(X)}. The \verb|\code| command should also
+be used for class names, which should be quoted; for example
+\verb|\code{"lm"}| is typeset as \code{"lm"}.
+
+
+\item[\code{$\backslash$ \\kbd\{\var{keyboard-characters}\}}]
+indicates keyboard input. For example,
+\verb|\kbd{CTRL-C}| is typeset as \kbd{CTRL-C}.
+
+
+\item[\code{$\backslash$ \\key\{\var{key-name}\}}]
+indicates the conventional name for a key on a keyboard.
+for example, \verb|\key{Ctrl}| is typeset as \key{Ctrl}.
+
+\item[\code{$\backslash$ \\samp\{\var{text}\}}]
+indicates text that is a literal example of a sequence of
+characters. For example, \verb|\samp{R CMD check}| is
+typeset as \samp{R CMD check}.
+
+\item[\code{$\backslash$ \\var\{\var{metasyntactic-variable}\}}]
+indicates a metasyntactic variable. For example, to refer to the
+argument of a function, one might use
+\verb|\var{argument}|, which is typeset as \var{argument}.
+
+\item[\code{$\backslash$ \\env\{\var{environment-variable}\}}]
+indicates an environment variable. For example,
+\verb|\env{PATH}| is typeset as \env{PATH}.
+
+\item[\code{$\backslash$ \\file\{\var{file-name}\}}]
+indicates the name of a file. For example,
+\verb|\file{RJwrapper.tex}| is typeset as \file{RJwrapper.tex}.
+
+
+\item[\code{$\backslash$ \\command\{\var{command-name}\}}]
+indicates a command name. For example,
+\verb|\command{ls}| is typeset as \command{ls}.
+
+\item[\code{$\backslash$ \\option\{\var{option-name}\}}]
+indicates a command line option. For example,
+\verb|\option{--help}| is typeset as \option{--help}.
+
+\item[\code{$\backslash$ \\dfn\{\var{term}\}}]
+indicates the introductory or defining use of a term.
+For example, \verb|\dfn{environment}| is typeset as
+\dfn{environment}.
+
+\end{description}
+
+For additional details, please see the Texinfo documentation
+at \url{http://www.gnu.org/software/texinfo/}.
+
+We also provide the following markup:
+
+\begin{description}
+\item[\code{$\backslash$ \\strong}]
+emphasizes text more strongly than  \verb|\emph|.
+For example, \verb|\strong{Note:}| is typeset as \strong{Note:}.
+
+\item[\code{$\backslash$ \\pkg}]
+indicates an \R{} package. For example,
+\verb|\pkg{MASS}| is typeset as \pkg{MASS}.
+
+\item[\code{$\backslash$ \\url}] indicates a URL.
+For example,\\ \verb|\url{http://cran.r-project.org/}| is typeset
+as \url{http://cran.r-project.org/}.
+
+\item[\code{$\backslash$ \\R\{\}}] may be used to
+insert the character \R{} into the text.
+
+\end{description}
+
+\subsection{Quotations and examples}
+
+In addition to the standard \LaTeX{} environments for quotations and examples (such
+as \verb|quote|, \verb|quotation|, \verb|flushleft|, \verb|center| and \verb|flushright|), the
+\pkg{\filename} package provides the following environments:
+
+\begin{description}
+
+\item[\code{example}]
+is used to illustrate code, commands, and the like.  The text is printed in a
+fixed-width font, and indented but not filled.
+
+\item[\code{smallexample}]
+is similar to \code{example}, except that text is typeset in a smaller
+font.
+
+\end{description}
+
+These are patterned after the Texinfo environments with the same
+names.  In particular, \verb|\{|, \verb|\}|, and \verb|\\| retain their ``usual'' meanings
+and are not treated verbatim, which is not optimal for displaying \R{}
+code or output.  Hence, we also provide a \verb|smallverbatim| environment
+which works like \verb|verbatim| but uses a smaller font for typesetting.
+
+\subsection{Sectioning, titles, and abstract}
+
+Use only \verb|\section| and \verb|\subsection| commands, not
+\verb|\section*| or \verb|\subsection*|.
+
+The title of the article should be set with initial capitals, as in
+\verb|\title{Drawing Diagrams with R}|. Only the initial word of
+section and subsection titles should be capitalized; for example,
+\verb|\section{Starting at the end}|. The only markup that should be
+used inside titles is \verb|\pkg|.
+
+Every article should include a abstract of no more than 150 words. The abstract
+is entered with the \verb|\abstract| command, and should appear immediately
+after \verb|\maketitle| at the beginning of the article.
+
+\subsection{Author information}
+
+Authors' names only should be given at the beginning of the article, following the
+title, using the \verb|\author| command. All other information is given in the
+`signature block' at the end of the article (see immediately below). For example,
+\verb|\author{Ross Ihaka and Robert Gentleman}|.
+
+The article should end with a signature block giving contact information
+for each author. For example
+
+\begin{verbatim}
+\address{Paul Murrell\\
+  Department of Statistics\\
+  The University of Auckland\\
+  New Zealand}\\
+\email{paul@stat.auckland.ac.nz}
+\end{verbatim}
+
+\subsection{Mathematics}
+
+The commands \verb|\P|, \verb|\E|, \verb|\VAR|, \verb|\COV|, and \verb|\COR| produce symbols
+for probability, expectation, variance, covariance, and correlation.
+For example, Chebyshev's inequality
+\begin{displaymath}
+\P(|\xi-\E\xi|>\lambda) \le \frac{\VAR(\xi)}{\lambda^2}.
+\end{displaymath}
+can be coded as
+\begin{verbatim}
+\P(|\xi-\E\xi|>\lambda) \le
+  \frac{\VAR(\xi)}{\lambda^2}
+\end{verbatim}
+
+The symbols
+\begin{displaymath}
+\mathbb{N}\quad\mathbb{Z}\quad\mathbb{Q}\quad\mathbb{R}\quad\mathbb{C}
+\end{displaymath}
+for the positive integers, the integers, and the rational, real and
+complex numbers, respectively, can be obtained using \verb|\mathbb| from
+package \pkg{amsfonts} as
+\verb|\mathbb{N}|, \verb|\mathbb{Z}|, \verb|\mathbb{Q}|, \verb|\mathbb{R}|,
+and \verb|\mathbb{C}|.
+
+\section{Two-column figures and tables}
+
+Currently, \emph{The R Journal} is typeset in two columns.
+By default, figures and tables will occupy only one
+column (see Figure \ref{figure:onecolfig}),
+but you can use the \verb|figure*| or
+\verb|table*| environments to create a figure or
+table that spans both columns (see Figures \ref{figure:bibexample}
+and \ref{figure:bblexample}).
+
+\begin{figure}
+\vspace*{.1in}
+\framebox[\textwidth]{\hfill \raisebox{-.45in}{\rule{0in}{1in}}
+                      A picture goes here \hfill}
+\caption{\label{figure:onecolfig}
+A normal figure only occupies one column.}
+\end{figure}
+
+\section{References}
+
+The standard way to produce citations for \emph{The R Journal} is via the
+\verb|\citep| and \verb|\citet| commands (and their relatives)
+and a {\tt .bib} file that contains the
+references in {\sc Bib}\TeX{} format.\footnote{We use the \pkg{natbib}
+package for citations.}  The citation in the first
+paragraph of this style guide is of the form
+\verb|\citep{R:Ihaka+Gentleman:1996}|.  Figure \ref{figure:bibexample}
+shows an example file called \file{example.bib} which contains
+a single reference.
+
+A bibliography is produced from \file{example.bib}
+by placing the following line in \file{RJtemplate.tex} (or
+whatever you end up calling it):
+\begin{verbatim}
+\bibliography{example}
+\end{verbatim}
+and running {\tt pdflatex} then {\tt bibtex} on the file
+\file{RJwrapper.tex}.
+
+You can make \emph{The R Journal} editors' job a bit easier if, at this point,
+you replace the line:
+\begin{verbatim}
+\bibliography{example}
+\end{verbatim}
+with the contents of the file \file{RJwrapper.bbl}.  Figure
+\ref{figure:bblexample} shows what this \file{RJwrapper.bbl} file
+looks like when produced from \file{example.bib}
+(in Figure \ref{figure:bibexample}).
+
+\begin{figure*}[b]
+\begin{center}
+\begin{boxedverbatim}
+@ARTICLE{R:Ihaka+Gentleman:1996,
+  AUTHOR = {Ross Ihaka and Robert Gentleman},
+  TITLE = {R: A Language for Data Analysis and Graphics},
+  JOURNAL = {Journal of Computational and Graphical Statistics},
+  YEAR = 1996,
+  VOLUME = 5,
+  NUMBER = 3,
+  PAGES = {299--314},
+  URL = {http://www.amstat.org/publications/jcgs/}
+}
+\end{boxedverbatim}
+\end{center}
+\caption{\label{figure:bibexample}
+The contents of a file called \file{example.bib}.  This figure
+uses the {\tt figure*} environment to span
+two columns.}
+\end{figure*}
+
+\begin{figure*}[b]
+\begin{center}
+\begin{boxedverbatim}
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+
+\bibitem[Ihaka and Gentleman(1996)]{R:Ihaka+Gentleman:1996}
+R.~Ihaka and R.~Gentleman.
+\newblock R: A language for data analysis and graphics.
+\newblock {\em Journal of Computational and Graphical Statistics}, 5\penalty0
+  (3):\penalty0 299--314, 1996.
+\newblock URL \url{http://www.amstat.org/publications/jcgs/}.
+
+\end{thebibliography}
+\end{boxedverbatim}
+\end{center}
+\caption{\label{figure:bblexample}
+The contents of a file called \file{RJwrapper.bbl}.  This figure also
+uses the {\tt figure*} environment to span
+two columns.}
+\end{figure*}
+
+\section{Summary}
+
+The steps involved in preparing an article for submission to \emph{The R Journal}
+are as follows:
+
+\begin{itemize}
+
+\item Download \file{RJwrapper.tex}, \file{RJtemplate.tex},
+and \file{RJournal.sty}.
+
+\item Rename \file{RJtemplate.tex} using the author's or authors' names
+(say, \file{Yourname.tex}), and replace its
+contents with the contents of your article.
+
+\item If appropriate, create a \file{Yourname.bib} BibTeX file and add
+\verb|\bibliography{Yourname}| at the end of \file{Yourname.tex}.
+
+\item Modify \file{RJwrapper.tex} to include {\tt Yourname} rather
+than {\tt RJtemplate}. Include all necessary \LaTeX{} \verb|\usepackage|
+commands in the modified \file{RJwrapper.tex}.
+
+\item If appropriate, run {\tt pdflatex} then
+ {\tt bibtex} on \file{RJwrapper.tex}
+to create \file{RJwrapper.bbl}. Replace
+\verb|\bibliography{Yourname}|
+in \file{Yourname.tex} with
+the contents of \file{RJwrapper.bbl}.
+
+\item Run {\tt pdflatex} on \file{RJwrapper.tex} a couple of times
+(until all figure references are resolved) to produce \file{RJwrapper.pdf}.
+
+\item Iterate until \file{RJwrapper.pdf} looks right.
+
+\item Then submit
+  \begin{itemize}
+  \item The modified \file{RJwrapper.tex};
+  \item \file{RJwrapper.pdf};
+  \item \file{Yourname.tex};
+  \item and all necessary figure files.
+  \end{itemize}
+\end{itemize}
+
+
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+
+\bibitem[Ihaka and Gentleman(1996)]{R:Ihaka+Gentleman:1996}
+R.~Ihaka and R.~Gentleman.
+\newblock R: A language for data analysis and graphics.
+\newblock {\em Journal of Computational and Graphical Statistics}, 5\penalty0
+  (3):\penalty0 299--314, 1996.
+\newblock URL \url{http://www.amstat.org/publications/jcgs/}.
+
+\end{thebibliography}
+
+
+
