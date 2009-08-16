@@ -245,12 +245,12 @@ The commands \verb|\P|, \verb|\E|, \verb|\VAR|, \verb|\COV|, and \verb|\COR| pro
 for probability, expectation, variance, covariance, and correlation.
 For example, Chebyshev's inequality
 \begin{displaymath}
-\P(|\xi-\E\xi|>\lambda) \le \frac{\VAR(\xi)}{\lambda^2}.
+\P\left(\left|\xi - \E\xi\right| > \lambda\right) \le \frac{\VAR\left(\xi\right)}{\lambda^2}
 \end{displaymath}
 can be coded as
 \begin{verbatim}
-\P(|\xi-\E\xi|>\lambda) \le
-  \frac{\VAR(\xi)}{\lambda^2}
+\P\left(\left|\xi - \E\xi\right| > \lambda\right) 
+  \le \frac{\VAR\left(\xi\right)}{\lambda^2}
 \end{verbatim}
 
 The symbols
@@ -401,7 +401,7 @@ the contents of \file{RJwrapper.bbl}.
 
 \section{Acknowledgment}
 
-Parts of this style guide were adapted from documentation originally 
+Parts of this style guide were adapted from documentation originally
 prepared by Kurt Hornik and Friedrich Leisch for the \emph{R Journal}
 \LaTeX{} style file.
 
