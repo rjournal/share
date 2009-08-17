@@ -241,27 +241,58 @@ for each author. For example
 
 \subsection{Mathematics}
 
-The commands \verb|\P|, \verb|\E|, \verb|\VAR|, \verb|\COV|, and \verb|\COR| produce symbols
-for probability, expectation, variance, covariance, and correlation.
-For example, Chebyshev's inequality
-\begin{displaymath}
-\P\left(\left|\xi - \E\xi\right| > \lambda\right) \le \frac{\VAR\left(\xi\right)}{\lambda^2}
-\end{displaymath}
-can be coded as
+\emph{The R Journal} does not prescribe specific \LaTeX{} mark-up for mathematics: Use
+mark-up that is conventional in your field. We do, however, encourage authors to
+follow sound \LaTeX{} practices. 
+
+\begin{itemize}
+
+\item For example, use proper mathematical operators: 
+Do not write \verb|log(x)|, which will be typeset as $log(x)$, but rather \verb|\log(x)|,
+which will appear as $\log(x)$. 
+
+\item Similarly, use \verb|\left| and \verb|\right| with
+delimiters in mathematical expressions in preference to bare delimiters:
+Do not write
+
 \begin{verbatim}
-\P\left(\left|\xi - \E\xi\right| > \lambda\right) 
-  \le \frac{\VAR\left(\xi\right)}{\lambda^2}
+\sum_{1=1}^{n}(X_{i}^{\prime} - 
+  \overline{X}^{\prime})^2
 \end{verbatim}
 
-The symbols
-\begin{displaymath}
-\mathbb{N}\quad\mathbb{Z}\quad\mathbb{Q}\quad\mathbb{R}\quad\mathbb{C}
-\end{displaymath}
-for the positive integers, the integers, and the rational, real and
-complex numbers, respectively, can be obtained using \verb|\mathbb| from
-package \pkg{amsfonts} as
-\verb|\mathbb{N}|, \verb|\mathbb{Z}|, \verb|\mathbb{Q}|, \verb|\mathbb{R}|,
-and \verb|\mathbb{C}|.
+which will be typeset as $\sum_{1=1}^{n}(X_{i}^{\prime} - \overline{X}^{\prime})^2$,
+but rather
+
+\begin{verbatim}
+\sum_{1=1}^{n}\left(X_{i}^{\prime} - 
+  \overline{X}^{\prime}\right)^2
+\end{verbatim}
+
+which will appear as $\sum_{1=1}^{n}\left(X_{i}^{\prime} - \overline{X}^{\prime}\right)^2$.
+
+\end{itemize}
+
+%The commands \verb|\P|, \verb|\E|, \verb|\VAR|, \verb|\COV|, and \verb|\COR| produce symbols
+%for probability, expectation, variance, covariance, and correlation.
+%For example, Chebyshev's inequality
+%\begin{displaymath}
+%\P\left(\left|\xi - \E\xi\right| > \lambda\right) \le \frac{\VAR\left(\xi\right)}{\lambda^2}
+%\end{displaymath}
+%can be coded as
+%\begin{verbatim}
+%\P\left(\left|\xi - \E\xi\right| > \lambda\right)
+%  \le \frac{\VAR\left(\xi\right)}{\lambda^2}
+%\end{verbatim}
+%
+%The symbols
+%\begin{displaymath}
+%\mathbb{N}\quad\mathbb{Z}\quad\mathbb{Q}\quad\mathbb{R}\quad\mathbb{C}
+%\end{displaymath}
+%for the positive integers, the integers, and the rational, real and
+%complex numbers, respectively, can be obtained using \verb|\mathbb| from
+%package \pkg{amsfonts} as
+%\verb|\mathbb{N}|, \verb|\mathbb{Z}|, \verb|\mathbb{Q}|, \verb|\mathbb{R}|,
+%and \verb|\mathbb{C}|.
 
 \section{Two-column figures and tables}
 
