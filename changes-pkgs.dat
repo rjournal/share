@@ -1,3 +1,121 @@
+## <issue 2009-2>
+2009-10-23 SAFD
+2009-10-21 textcat
+2009-10-20 season skellam
+2009-10-19 cudaBayesreg geneARMA
+2009-10-17 GLMMarp R2wd el.convex
+2009-10-16 adaptTest
+2009-10-15 bcv
+2009-10-14 glmdm integrativeME latticedl sublogo
+2009-10-13 EvalEst dse1 dse2
+2009-10-12 nodeHarvest
+2009-10-08 AGSDest geneListPie sBF
+2009-10-07 atmi
+2009-10-06 gamesNws speedglm
+2009-10-05 WMCapacity
+2009-10-04 caGUI
+2009-10-03 phull
+2009-10-02 RC glmperm
+2009-09-30 RelativeRisk inlinedocs
+2009-09-29 lda psgp
+2009-09-28 EQL HMR QCA3 flsa intamap ttutils
+2009-09-24 RcmdrPlugin.DoE
+2009-09-23 difR
+2009-09-22 MCMChybridGP bdoc desire nnclust pooh potts
+2009-09-21 CircSpatial DTDA gRapHD phybase rWMBAT
+2009-09-20 CORElearn RInside bdsmatrix coxme
+2009-09-19 PearsonDS
+2009-09-18 COP FME LLdecomp ORIClust iGenomicViewer nbpMatching nparLD pendensity
+2009-09-12 ftsa tikzDevice
+2009-09-10 Geneclust maticce tm.plugin.mail
+2009-09-09 CircNNTSR MLCM RPMM
+2009-09-08 fds gamm4 rms
+2009-09-07 ant caroline farmR marelacTeaching sos
+2009-09-06 GWAF condGEE mvsf
+2009-09-03 GGMselect frbf lemma
+2009-08-31 amer
+2009-08-28 PCIT RLastFM
+2009-08-27 bestglm
+2009-08-26 SWordInstaller
+2009-08-25 gausspred
+2009-08-21 DoE.wrapper RcmdrPlugin.qual doSNOW dummies stringkernels
+2009-08-20 atm gnumeric oosp rrv
+2009-08-19 KFAS PLIS munsell ttrTests
+2009-08-14 Rmpfr SIS sdef
+2009-08-13 RBerkeley cshapes dcemri simFrame skmeans
+2009-08-10 OjaNP svTools
+2009-08-09 vegetarian
+2009-08-08 crantastic rioja
+2009-08-05 DRI
+2009-08-04 Rniftilib YieldCurve bclust interval
+2009-08-02 latdiag
+2009-07-31 sculpt3d
+2009-07-30 Rassoc cimis perm ringscale
+2009-07-27 parser
+2009-07-26 lordif treethresh
+2009-07-24 DiversitySampler MMIX twitteR
+2009-07-22 SHARE exact2x2 safeBinaryRegression
+2009-07-21 ReacTran mixfdr mstate pgs sendmailR
+2009-07-19 SEL anchors
+2009-07-18 ADGofTest FEST HSAUR2 REEMtree colbycol gamlss.data modTempEff muRL p3state.msm packdep ripa rpartOrdinal yhat
+2009-07-02 speff2trial
+2009-07-01 bvpSolve gsDesign dlnm
+2009-06-29 aroma.affymetrix rankhazard tolerance
+2009-06-28 ElectroGraph svDialogs svSweave svUnit svWidgets
+2009-06-27 R2PPT RSiena doMC foreach iterators
+2009-06-26 slam
+2009-06-25 HWEBayes infotheo multmod
+2009-06-24 Daim aCGH.Spline bootRes
+2009-06-22 GOFSN RImageJ dirmult endogMNP
+2009-06-20 digeR glmulti plus
+2009-06-18 PCS cmprskContin
+2009-06-17 gPdtest
+2009-06-16 SigWinR
+2009-06-15 aroma.core cmrutils mar1s
+2009-06-14 Deducer EnQuireR aroma.apd kmi matrixStats mediation pamm robustX sddpack
+2009-06-10 longitudinalData
+2009-06-09 R.filesets
+2009-06-08 CalciOMatic HybridMC descr fractalrock mrt spatcounts
+2009-06-07 GeneReg
+2009-06-05 isa2 metafor
+2009-06-03 cmm countrycode freqMAP oblique.tree tnet
+2009-06-02 CDFt TripleR mvShapiroTest sugaR
+2009-05-29 RthroughExcelWorkbooksInstaller rainbow
+2009-05-28 estout simctest
+2009-05-27 Haplin packS4
+2009-05-26 IsoGene
+2009-05-25 DoE.base mcclust
+2009-05-24 flubase pedigreemm
+2009-05-20 HTMLUtils
+2009-05-19 ReadImages
+2009-05-18 binomSamSize odfWeave.survey
+2009-05-17 dynGraph integrOmics
+2009-05-14 tractor.base
+2009-05-13 FRB NeatMap pegas
+2009-05-10 optBiomarker
+## 2009-08-21 Packages 'GeneNT', 'RiboSort', 'SLmisc', 'bivpois', 'clac', 'pwr' and 'supclust' were moved to the Archive.
+## 2009-07-18 Bundle 'BACCO' was unbundled into its packages 'approximator', 'calibrator' and 'emulator'.
+## 2009-07-01 Package 'Rlab' was resurrected from the Archive.
+## 2009-06-27 Package 'openNLPmodels' was split into 'openNLPmodels.en' and 'openNLPmodels.es'.
+## 2009-06-27 Package 'spectrino' was removed from CRAN.
+## 2009-06-24 Packages 'ARES', 'MDD', 'WeedMap', 'boost', and 'ggplot' were move to the Archive.
+## 2009-06-23 Packages 'HTMLapplets', 'norm', 'partsm', 'uroot' and 'verify' were moved to the Archive.
+## 2009-06-17 Package 'Multiclasstesting' was resurrected from the Archive.
+## 2009-06-17 Package 'WaveCGH' was moved to the Archive.
+## 2009-06-07 Package 'intcox' was resurrected from the Archive.
+## 2009-06-05 Package 'survBayes' was resurrected from the Archive.
+## 2009-06-02 Package 'sdtalt' was resurrected from the Archive.
+## 2009-05-11 Package 'mixlow' resurrected from the Archive.
+## 2009-10-14 archive crq
+## 2009-10-07 archive agreement
+## 2009-09-28 archive mclust02
+## 2009-09-24 archive hoa; unbundle hoa => cond csampling marg nlreg
+## 2009-09-12 archive sma
+## 2009-09-07 archive forecasting; unbundle forecasting => Mcomp expsmooth fma forecast
+## 2009-08-30 unarchive km.ci
+## 2009-08-24 archive UNF [timeout]
+## </issue>
+
 ## <issue 2009-1>
 2009-05-08 ExPD2D diffusionMap
 2009-05-07 mixAK
