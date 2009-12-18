@@ -7,13 +7,15 @@ my $secEnd = "\}\n\\begin\{itemize\}";
 
 
 while(<>){
-    s/\s*CHANGES IN R VERSION (\d.\d.\d)/\\title\{Changes in R\}\\author\{by the R Core Team\}\\maketitle/;
+#    s/\s*CHANGES IN R VERSION (\d.\d.\d)/\\title\{Changes in R\}\\author\{by the R Core Team\}\\maketitle/;
 
     s/\s*USER-VISIBLE CHANGES/${secBeg}User-visible changes${secEnd}/;
     s/\s*NEW FEATURES/${secBeg}New features${secEnd}/;
     s/\s*DEPRECATED & DEFUNCT/${secBeg}Deprecated \& defunct${secEnd}/;
     s/\s*DOCUMENTATION CHANGES/${secBeg}Documentation changes${secEnd}/;
     s/\s*INSTALLATION CHANGES/${secBeg}Installation changes${secEnd}/;
+    s/\s*INSTALLATION/${secBeg}Installation changes${secEnd}/;
+    s/\s*INTERNATIONALIZATION/${secBeg}Internationalization${secEnd}/;
     s/\s*UTILITIES/${secBeg}Utilities${secEnd}/;
     s/\s*C-LEVEL FACILITIES/${secBeg}C-level facilities${secEnd}/;
     s/\s*BUG FIXES/${secBeg}Bug fixes${secEnd}/;
