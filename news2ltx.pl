@@ -2,12 +2,15 @@
 ## Usage:
 ##   perl news2ltx.pl NEWS
 
-my $secBeg = "\\end\{itemize\}\n\n\\section*\{ ";
+my $secBeg = "\\end\{itemize\}\n\n\\subsection*\{ ";
 my $secEnd = "\}\n\\begin\{itemize\}";
 
+print "\\title\{Changes in R\}\\author\{by the R Core Team\}\\maketitle";
 
 while(<>){
-#    s/\s*CHANGES IN R VERSION (\d.\d.\d)/\\title\{Changes in R\}\\author\{by the R Core Team\}\\maketitle/;
+# Forget lines that begin and end with an asterisk
+    /^\s*\*.*\*\s*$/ && next;
+    s/\s*CHANGES IN R VERSION (\d+.\d+.\d+ *\S*)/\\section*\{R $1 changes\}\n\\begin\{itemize\}/;
 
     s/\s*USER-VISIBLE CHANGES/${secBeg}User-visible changes${secEnd}/;
     s/\s*NEW FEATURES/${secBeg}New features${secEnd}/;
@@ -22,6 +25,12 @@ while(<>){
     
     s/^\s+o\s+/\\item /;
     s/(\S+\([^\)]*\))/\\code{$1}/g;
+# Try to avoid touching quoted strings in function calls
+# using negative lookahead for a closing brace
+# (not quite perfect)
+# Strings with spaces require manual intervention
+    s/'(\S+)'(?!.*})/\\code{$1}/g;
+    s/"(\S+)"(?!.*})/\\code{"$1"}/g;
     s/PR\#/PR\\\#/g;
     s/_/\\_/g;
     s/&/\\&/g;
