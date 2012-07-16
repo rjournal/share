@@ -1,76 +1,40 @@
-\NeedsTeXFormat{LaTeX2e}[1995/12/01]
-\ProvidesPackage{upquote}[2003/08/11 v1.1 Covington's upright-quote
-                          modification to verbatim and verb]
-
-%% Copyright 2000 Michael A. Covington.
-%% Copyright 2003 Michael A. Covington, Frank Mittelbach.
 %%
-%% It may be distributed and/or modified under the
-%% conditions of the LaTeX Project Public License, either version 1.2
-%% of this license or (at your option) any later version.
-%% The latest version of this license is in
-%%    http://www.latex-project.org/lppl.txt
-%% and version 1.2 or later is part of all distributions of LaTeX
-%% version 1999/12/01 or later.
+%% This is file `upquote.sty',
+%% generated with the docstrip utility.
 %%
-
-% Problem: Computer Modern Typewriter is the best font for program listings,
-%           *but* it prints ` ' as bent opening and closing single quotes.
-%           Other fonts, and most programming languages, print ` as a grave
-%           accent and ' upright; ' is used both to open and to close quoted
-%           strings.
-
-%           See also M. Covington, "Computer Languages in Type," Journal of
-%           Scholarly Publishing 26.1:34-41 (1994).
-
-% Solution: This package switches the typewriter font to Computer Modern
-%           Typewriter (regardless of other fonts in use, so long as this
-%           package is called afterward) and modifies the behavior of
-%           verbatim, verbatim*, verb, and verb* to print ` ' the desired way.
-%           It does not affect \tt, \texttt, etc.
-
-% Author:   Michael A. Covington
-%           Artificial Intelligence Center
-%           The University of Georgia
-%           http://www.ai.uga.edu/~mc
-%
-%           and
-%
-%           Covington Innovations (Consulting and Typesetting)
-%           http://www.CovingtonInnovations.com
-
-% The modification is done by adding instructions to \@noligs,
-% which is called by verbatim and verb in order to turn the
-% characters ` < > , ' - into active characters that merely
-% print themselves rather than activating ligatures.
-%
-% What is added is code to redefine ` as grave and ' as upright single quote.
-%
-
-% Bug fix, 2000/12/11: previously, '0 (or ' and any digit) would print as a
-% nonexistent character.  (The reason: \char13 or \char18 was combining with
-% the digit to make \char130, etc.)  Fixed by adding curly brackets.
-
-
-
-%% Rewritten by FMi 2003/06/19
-%
-%
-% Use textcomp official chars so that change works in various
-% encodings
-%
-% Extend \@noligs (this also works with the latest listings package
-% that recognizes that the package was loaded)
-
-\RequirePackage{textcomp}
-
+%% The original source files were:
+%%
+%% upquote.dtx  (with options: `package')
+%% 
+%% Copyright (C) 2000 by Michael A. Covington
+%% Copyright (C) 2003 by Frank Mittelbach
+%% Copyright (C) 2012 by Markus Kuhn (current maintainer)
+%% 
+%% Released under the LaTeX Project Public License v1.3c or later
+%% See http://www.latex-project.org/lppl.txt
+%% 
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{upquote}
+   [2012/04/19 v1.3 upright-quote and grave-accent glyphs in verbatim]
+\newcommand\upquote@cmtt{cmtt}
+\newcommand\upquote@OTone{OT1}
+\ifx\encodingdefault\upquote@OTone
+  \ifx\ttdefault\upquote@cmtt\else\RequirePackage{textcomp}\fi
+\else
+  \RequirePackage{textcomp}
+\fi
 \begingroup
-\catcode`'=\active               
-\catcode``=\active               
+\catcode`'=\active
+\catcode``=\active
 \g@addto@macro\@noligs
-   {\let`\textasciigrave
-    \let'\textquotesingle}
+   {\let'\textquotesingle
+    \let`\textasciigrave
+    \ifx\encodingdefault\upquote@OTone
+    \ifx\ttdefault\upquote@cmtt
+    \def'{\char13 }%
+    \def`{\char18 }%
+    \fi\fi}
 \endgroup
-
-
 \endinput
+%%
+%% End of file `upquote.sty'.
