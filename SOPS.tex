@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{url}
+\usepackage{a4wide}
 \begin{document}
 
 \title{Standard Operating Procedures for The R Journal}
@@ -10,8 +11,9 @@
 \section{Editorial Board}
 
 The board consists of four editors. Each editor serves a term of four
-years, starting on 1 January. The editorial board handles submissions
-of Contributed Research Articles.
+years, starting on 1 January and ending on 31 December four years
+later. The editorial board handles submissions of Contributed Research
+Articles.
 
 In addition to the board members, there are three topic editors who
 handle submissions under the sections ``Programmer's Niche'', ``Help
@@ -20,12 +22,12 @@ Desk'' and ``Book Reviews''. Topic editors serve as long as they wish.
 \subsection{Editor in Chief}
 
 The editor in the third year of their term acts as Editor-in-Chief
-(EIC). The EIC takes primary responsibility for
+(EIC). The EIC takes primary responsibility for:
 \begin{itemize}
 \item Production of two journal issues per year, in January and December.
 \item Managing the flow of submissions, ensuring that these are
   handled in a timely manner.
-\item Maintaining the R Journal web site \url{journal.r-project.org}
+\item Maintaining the R Journal web site \url{http://journal.r-project.org}
 \item Maintaining the LaTeX style files and tools used to manage the
   journal.
 \end{itemize}
@@ -37,7 +39,7 @@ consulted for advice on strategic issues.  The email address of the
 advisory board is \url{r-journal-advisory@r-project.org}. The R
 Journal Advisory list is archived.
 
-\subsection{email}
+\subsection{Email}
 
 All editors are members of the mailing list
 \url{r-journal-editors@r-project.org}, which is a private list used to
@@ -51,23 +53,25 @@ is not possible using the \verb+r-project.org+ alias.
 The board members are also members of the \verb+r-journal-advisory+
 mailing list.
 
-\subsection{subversion}
+\subsection{Subversion}
 
 Board members have access to two subversion (SVN) repositories
 \begin{description}
-\item[Rjournal-adm] The \texttt{Rjournal-adm} repository used for
+\item[Rjournal-adm] The \texttt{Rjournal-adm} repository is used for
   submission management. The repository is located at
   \url{https://svn.r-project.org/Rjournal-adm/trunk}.
-\item[Rjournal] The \texttt{RJournal} repository for the R Journal web
-  page. The repository is located at
+\item[Rjournal] The \texttt{RJournal} repository is used to maintain
+  the R Journal web site. The repository is located at
   \url{https://svn.r-project.org/Rjournal/trunk}) Changes to the
   \texttt{Rjournal} repository do not immediately affect the web site
   \url{journal.r-project.org} but are copied via a cron job twice per
   day.
 \end{description}
-Topic editors do not have subversion access.
+Topic editors do not have subversion access. They must use the
+\texttt+r-journal-editors+ mailing list to keep the board informed
+about the status of special topic submissions.
 
-\subsubsection{LaTeX environment}
+\subsubsection{LaTeX Environment}
 
 Editors should set up the \texttt{TEXINPUTS} environment variable to
 point to the subdirectory \texttt{share} in the working copy of the
@@ -76,11 +80,11 @@ point to the subdirectory \texttt{share} in the working copy of the
 
 \begin{verbatim}
 TEXINPUTS=/path/to/Rjournal-adm/share/:$TEXINPUTS
-export TEXINPUT
+export TEXINPUTS
 \end{verbatim}
 
 This ensures that the current version of \texttt{Rjournal.sty} is used
-along with any configuration files.
+along with any configuration files in the same directory.
 
 \section{Submissions}
 
@@ -99,7 +103,8 @@ file. Each entry has the following fields:
 \item[R2email] Email address of second reviewer
 \item[Status] Current status, taking one of the following values:
   needs editor; needs reviewers; under review; accepted; rejected;
-  and, for published articles, the corresponding issue number
+  and, for published articles, the R Journal issue number in which
+  the article appears.
 \item[Comments] Free-form field used to make notes on the submission and
   its history.
 \end{description}
@@ -115,7 +120,10 @@ svn diff index.dcf   #Confirm changes
 svn commit index.dcf #Commit changes
 \end{verbatim}
 
-\subsection{New submissions}
+In case of conflicts, use \verb+'svn resolve --accept tf'+ to reject
+all local changes and start again.
+
+\subsection{New Submissions}
 
 Submissions are normally sent to the EIC. However, any member of the
 board may handle a new submission if they follow the same procedure.
@@ -123,20 +131,22 @@ board may handle a new submission if they follow the same procedure.
 \begin{itemize}
 \item Create an entry in \texttt{index.dcf}.
   \begin{itemize}
-  \item Assign the next available submission number 
-  \item Fill the  fields authors, email, and title from the relevant
-    information in the submission.
-  \item Set the status field to ``needs editor''
+  \item Assign the next available reference number.
+  \item Fill the  fields authors, email, and title.
+  \item Set the \texttt{Status} field to ``needs editor''.
   \end{itemize}
-\item Acknowledge receipt of the submission to the authors, giving
-  reference number.  Note dates of receipt and acknowledgement in the
-  \texttt{Comments} field of \texttt{index.dcf}.
+\item Acknowledge receipt of the submission to the authors, giving the
+  reference number and asking them to use this in future
+  correspondence.  Note the dates of receipt and acknowledgement in
+  the \texttt{Comments} field of \texttt{index.dcf}.
 \item Create a subdirectory for the submission under the Submissions
-  directory.  The subdirectory should contain 
+  directory.  The subdirectory is named after the reference number and
+  should contain:
   \begin{description}
   \item[RJwrapper.pdf]: The PDF file to be sent to reviewers
   \item[The author file]: The LaTeX file included by \texttt{RJwrapper.tex}
-    containing the LaTeX source for the article
+    containing the LaTeX source for the article. This should normally
+    be named after the authors.
   \item[Graphics files]: Any files included as images in the article.
   \item[The bibliography file]: Authors must use BibTeX to create the
     bibliography. This ensures that the bibliography conforms to the 
@@ -151,9 +161,14 @@ board may handle a new submission if they follow the same procedure.
   \item[Zip files] Zip files are binary files and are not amenable to
     version control using SVN. Only the contents of zip files should
     be checked in.
-  \item[Built files] Any intermediate files created by pdflatex while
-    building \texttt{RJwrapper.pdf}.
+  \item[Built files] Intermediate files created by \texttt{pdflatex}
+    while building \texttt{RJwrapper.pdf}.
   \end{description}
+\item Check that the submission can be rebuilt from the sources (It is
+  not uncommon for authors to omit one of the image files). It is also
+  useful to check that the rebuild PDF file is the same as the
+  submitted PDF file using the \texttt{diffpdf} tool
+  (\url{http://www.qtrac.eu/diffpdf.html}).
 \end{itemize}
 
 \section{Handling Editor}
@@ -163,73 +178,79 @@ and invites the members of the board to take on submissions as
 handling editor. This editorial duty is shared equally among members
 of the board, including the EIC.
 
-The handling editor fills in their name in the ``editor'' field and
-changes the status of the submission to ``needs reviewers'' The
-handling editor is responsible for keeping the \texttt{index.dcf} file and the
-files in the repository up to date for the given submission.
+The handling editor fills in their name in the \texttt{editor} field
+and changes the status of the submission to ``needs reviewers'' The
+handling editor is responsible for keeping the \texttt{index.dcf} file
+and the submission files in the repository up to date.
 
 \section{Peer review}
 
-The handling editor selects and invites reviewers. Each submission
-should have at least two reviewers. Exceptionally, a third reviewer
-may be invited, in which case additional fields are created in the
-\texttt{index.dcf} file. Under normal circumstances, the reviewers
-remain anonymous to the authors.
+The handling editor may reject submissions without peer review if the
+quality of the submission is low or if it is clearly outside the scope
+of the journal. Editorial rejections may be discussed by the board.
+
+Otherwise, the handling editor selects and invites reviewers. Each
+submission should have at least two reviewers. Exceptionally, a third
+reviewer may be invited, in which case additional fields are created
+in the \texttt{index.dcf} file. Under normal circumstances, the
+reviewers remain anonymous to the authors.
 
 The reviewers should be given a clear deadline for the return of
 reviews.  This should an absolute, not a relative deadline (i.e., a
 date, not ``in four weeks''). Suitable review times are
 \begin{itemize}
-\item Four weeks for most articles
+\item Four weeks for most articles.
 \item Two weeks for short articles (under 5 pages) or those containing
-few formulae and little R code
-\item Six weeks for longer or more technical articles
+few formulae and little R code.
+\item Six weeks for longer or more technical articles.
 \end{itemize}
 The dates on which reviews are expected should be noted in the
-\texttt{Comments} field so that the EIC can see the current status.
+\texttt{Comments} field so that the EIC can check the current status.
 
 When reviewers have agreed, their names and email addresses should
-be entered into the \verb+Reveiwer1/2+ and \verb+REmail1/2+ entries.
+be entered into the \verb+Reveiwer[1-3]+ and \verb+REmail1[1-3]+ entries.
 The \texttt{status} field should be changed to ``under review''.
 
 The handling editor is responsible for communication with the authors
 and reviewers. Email correspondence with the reviewers and the authors
 is not copied to the \verb+r-journal-editors+ mailing list (which is
 reserved for discussions between editors). However, copies of the
-correspondence may be checked into the submission directory under the
+correspondence may be checked into the submission directory in a
 subdirectory \texttt{correspondence}.
 
 Copies of the reviews and, when applicable, the authors' response to
 the reviewers should be checked into the submission subdirectory with
 appropriate file names (e.g. \texttt{R1.pdf}, \texttt{R2.txt},
-\texttt{Response.pdf})
+\texttt{Response.pdf}).
 
 \section{Resubmissions}
 
-Only the current versions of the submission files are of interest.
-When a revised version of the paper is received, the files for it {\bf
-  replace} those of the original version. Editors {\bf MUST NOT}
-create multiple copies of submission files in the submission directory
-as this creates an ambiguous situation for the EIC when the time comes
-to publish the issue.
+Editors should use the version control facilities of SVN to manage
+revisions of submissions. When a revised version of the paper is
+received, the files for it replace those of the original
+version. Editors must not create multiple copies of submission files
+in the submission directory; this creates an ambiguous situation for
+the EIC when the time comes to publish the issue.
 
-Note that any file in the working copy can be temporarily reverted to
-a previous version with \verb+'svn update -rXXX'+ where \verb+XXX+ is
-the number of the repository version containing a previous revision.
-Such revision numbers can be found with
-\verb+'svn log <filename>'+. The next call to \verb+'svn update'+ will
-restore the working copy to the current version.
+Note that previous versions of files remain accessible.  Any file in
+the working copy can be temporarily reverted to a previous version
+with \verb+'svn update -rXXX'+ where \verb+XXX+ is the number of the
+repository version containing a previous revision.  Such revision
+numbers can be found with \verb+'svn log <filename>'+. The next call
+to \verb+'svn update'+ will restore the working copy to the current
+version.
 
-\section{Final disposition}
+\section{Final Disposition}
 
 The handling editor is responsible for deciding whether the paper is
-accepted or rejected, and whether a revision is requested.
+accepted or rejected, and whether a revision is requested. Such
+decisions may be discussed with the rest of the board.
 
 When an article is rejected, or if the article is withdrawn by the
 authors, the handling editor performs the following actions:
 \begin{itemize}
 \item The article subdirectory is moved from \texttt{Submissions} to
-  \texttt{Rejected} using \verb+svn move+
+  \texttt{Rejected} using \verb+'svn move'+
 \item The article status is updated to ``rejected'' in the \texttt{index.dcf}
   file.
 \end{itemize}
@@ -243,7 +264,7 @@ When an article is accepted for publication:
   mailing list to inform the editors that the article is accepted.
 \end{itemize}
 
-\section{Copy-editing and online preview}
+\section{Copy-editing and Online Preview}
 
 Accepted articles are eligible for online preview on the R Journal web
 site.  Accepted articles must first go through copy-editing process by
@@ -254,7 +275,7 @@ EIC.
 Copy editing ensures that 
 \begin{itemize}
 \item The article conforms to the journal style (see the file
-  \verb+proofreading_checklist.txt+)
+  \texttt{proofreading\_checklist.txt}).
 \item English spelling and grammar are correct.
 \item There are no layout issues (e.g. non-floating figures and tables
   leaving large amounts of white space
@@ -263,7 +284,7 @@ Copy editing ensures that
 When copy editing is complete, the responsible editor sends a message
 to the \verb+r-journal-editors+ mailing list.
 
-\subsection{Creating an online preview}
+\subsection{Creating an Online Preview}
 
 The EIC creates an online preview for accepted articles, working
 in the \texttt{Rjournal} repository. Creating an online preview
@@ -273,16 +294,17 @@ requires the Perl template toolkit (See ``Publishing a New issue'')
 \item Create a new subdirectory of \verb+html/accepted+ using the
   reference number of the article (\verb+refno+)
 \item Copy \texttt{RJwrapper.pdf} from the \texttt{Rjournal-adm}
-  repository to the \verb+html/accepted/refno/+ directory and rename it
-  after the authors (e.g., \verb|Eugster+Schlesinger.pdf|)
+  repository to the \verb+html/accepted/refno/+ directory and rename
+  it after the authors. Multiple author names are separated by a '+'
+  (e.g., \texttt{Eugster+Schlesinger.pdf})
 \item Create an entry in \texttt{accepted.txt} containing 
   \begin{itemize}
   \item The article title
   \item The author names
   \item The path to the PDF file (e.g.,
-    \verb|accepted/2012-06/Eugster+Schlesinger.pdf|)
+    \texttt{accepted/2012-06/Eugster+Schlesinger.pdf})
   \end{itemize}
-  separated by ``|'' characters.
+  separated by $|$ characters.
 \item Remove the file \verb+html/accepted.html+ and run
   \verb+'ttree -f RJ.ttreerc'+
 \item Ensure that the new version is online by opening the file 
@@ -291,10 +313,12 @@ requires the Perl template toolkit (See ``Publishing a New issue'')
 \item Add the new files to the SVN repository and check in the updates.
 \end{enumerate}
 
-\section{Preparing a new issue}
+\section{Preparing a New Issue}
 
 The EIC should begin the preparation of a new issue at least 3 weeks
-before the due publication date.
+before the due publication date to allow time for authors to proof-read
+their articles and for the contributers to the ``News and Notes'' to
+write their entries.
 
 The EIC creates a new sub-directory of Proofs using the naming
 convention \verb+<year>-<issue>+ (e.g., 2012-2). The following files
@@ -310,25 +334,27 @@ should be copied into this directory
 \end{itemize}
 \item The latest \texttt{RJournal.sty}
 \item A copy of the LaTeX wrapper file
-  \verb+share/RJournal_template.tex+ renamed as
-  \verb+RJournal_<year>-<issue>.tex+. In the sequel, this is called
+  \texttt{share/RJournal\_template.tex} renamed as\\
+  \texttt{RJournal\_<year>-<issue>.tex}. In the sequel, this is called
   the {\em issue file}.
 \end{itemize}
 
 The following lines of the issue file should be edited to match the
 current issue.
+{\small
 \begin{verbatim}
 \volume{v} %Replace v with current volume number
 \volnumber{n} %Replace n with current issue number
 \date{Month Year} %Replace with current month (in letters) and year (yyyy)
 \end{verbatim}
+}
 
 If the editorial board has changed since the last issue, then the
 \verb+RJournal_template.tex+ file should be updated.
 
 \subsection{Editorial}
 
-The editorial \texttt{editorial.tex} is written by the EIC and is
+The editorial file \texttt{editorial.tex} is written by the EIC and is
 usually one page long.  There should be page breaks after the
 editorial that the first Contributed research article begins on an
 odd-numbered page.
@@ -336,18 +362,18 @@ odd-numbered page.
 \subsection{Contributed Research Articles}
 
 The articles to be published are selected by the EIC from among the
-currently accepted articles. Articles with a lower submission number
+currently accepted articles. Articles with a lower reference number
 are usually published first, leaving more recently submitted articles
 in the queue, even if they were accepted earlier.
 
-\subsubsection{Moving the source files}
+\subsubsection{Moving the Source Files}
 
 Articles to be published are moved from the Accepted directory, e.g.
 \begin{verbatim}
-svn move Accepted 2011-05 Proofs/2012-2
+svn move Accepted 2011-05 Proofs/2012-2/
 \end{verbatim}
 
-\subsubsection{Including an article in the issue file}
+\subsubsection{Including an Article in the Issue File}
 
 Each article is included in the issue file as follows:
 \begin{verbatim}
@@ -360,7 +386,7 @@ Each article is included in the issue file as follows:
 where \verb+<refno>+ is the reference number of the article
 (e.g. \texttt{2011-05}) and \verb+<Authorfile.tex>+ is the {\em author
   file} -- the file containing the LaTeX source that is usually named
-after the authors (e.g., \texttt{HaNohLee.tex}. The \verb+\subimport+
+after the authors (e.g., \texttt{HaNohLee.tex}). The \verb+\subimport+
 command comes from the import package and allows source files to be
 included from a sub-directory.  Note that the trailing slash after
 \verb+<refno>+ is required: if omitted it will lead to a ``file not
@@ -398,17 +424,17 @@ file and paste in the contents of \texttt{RJwrapper.bbl} into the
 issue file.
 
 It may occur that two articles use the same key to identify a
-bibliography entry. This will result in a warning message ``Package
-natbib Warning: There were multiply defined citations´´.  The relevant
-citations can be found by inspecting the output from
-\texttt{pdflatex}.  This issue should be resolved by renaming the key
-in one of the author files.
+bibliography entry. This will result in a warning message
+``\texttt{Package natbib Warning: There were multiply defined
+  citations}''.  The relevant citations can be found by inspecting the
+output from \texttt{pdflatex}.  This problem should be resolved by
+renaming the key in one of the author files.
 
-\subsection{Themed articles}
+\subsection{Themed Articles}
 
 Themed articles appear under the following sections of the Journal:
 \begin{itemize}
-\item From the core
+\item From the Core
 \item Programmer's Niche
 \item Helpdesk
 \item Book Reviews
@@ -426,7 +452,7 @@ The source files for News and Notes are
 \item \texttt{cran.tex} for Changes on CRAN. This file is provided by
   Kurt Hornik and Achim Zeileis. The EIC writes to them a few weeks
   before publication.
-\item \texttt{foundation.tex} R Foundation News, also provided by Kurt Hornik
+\item \texttt{foundation.tex} R Foundation News, also provided by Kurt Hornik.
 \item \texttt{biocch.tex} News from the Bioconductor project. This is
   provided by Martin Morgan. The EIC also writes to him a few weeks
   before publication.
@@ -440,14 +466,18 @@ The source files for News and Notes are
 \item Copy \texttt{NEWS.Rd} from the latest released version of R
 \item Remove any sections that were already included in the previous issue.
 \item Change the first line (which defines \verb+\PR+ to do something
-complicated) to just \verb+\newcommand{\PR}{PR##1}+
+complicated) to just 
+\begin{verbatim}
+\newcommand{\PR}{PR##1}
+\end{verbatim}
 \item Run \verb+R CMD Rdconv -t latex NEWS.Rd > NEWS.tex+
-\item If any undefined \verb+Rd+ macros turn up, update Rdsub.tex (most likely
-by stealing code from \verb+share/texmf/tex/latex/Rd.sty+ in the R sources
+\item If any undefined \verb+Rd+ macros turn up, update
+  \texttt{Rdsub.tex} (most likely by stealing code from
+  \texttt{share/texmf/tex/latex/Rd.sty} in the R sources).
 \item Ideally, fix typos, missing markup, etc. in the {\em original}
 \texttt{NEWS.Rd} and redo steps 4-5.
 \item Any remaining formatting (Overfull boxes, etc.) has to be
-  handled {\em ad hoc}
+  handled {\em ad hoc}.
 \end{enumerate}
 Note that \texttt{NEWS.Rd} is typically UTF-8 encoded.  Any non-ASCII
 characters have to be converted to ASCII using the appropriate LaTeX
@@ -456,7 +486,7 @@ original \texttt{NEWS.Rd} file.
 
 \section{Pre-publication}
 
-\subsection{EIC tasks}
+\subsection{EIC Tasks}
 
 Before launching the pre-publication process, the EIC should verify
 the following:
@@ -466,7 +496,7 @@ the following:
 \item All LaTeX source files are checked in to the SVN repository and
   are up to date so that the associated editors can rebuild the issue
   if necessary.
-\item The status of each articles included in this issue is updated in
+\item The status of each article included in this issue is updated in
   the file \texttt{index.dcf} to the current issue number (e.g.,
   \verb+Status: 2012-2+).
 \end{itemize}
@@ -475,7 +505,7 @@ Pre-publication proceeds as follows:
 
 \begin{enumerate}
 \item The EIC checks in a copy of the PDF built from the issue file
-  into the ``RJournal´´ SVN repository in the sub-directory
+  into the \texttt{RJournal} SVN repository in the sub-directory
   \texttt{prepub}. From there it is publicly accessible via
   \url{http://svn.r-project.org/RJournal/trunk/prepub/RJournal_year-issue.pdf}.
 \item The EIC informs the other editors via a message to
@@ -483,16 +513,14 @@ Pre-publication proceeds as follows:
   version is ready giving the URL.
 \item The EIC distributes proof-reading duties between the associate
   editors. An editor should not normally proof read an article that
-  they previously handled as an editor
+  they previously handled as an editor.
 \item The EIC sets a publication date, and a clear deadline for the
   return of corrected proofs.
 \end{enumerate}
 
 \subsection{Proof Reading}
 
-The associate editors check the articles assigned to them for errors
-and make necessary corrections. They then write to the authors
-
+The associate editors write to the authors:
 \begin{itemize}
 \item The AE gives the URL for the pre-publication version of the
   current issue to the authors.
@@ -504,21 +532,20 @@ and make necessary corrections. They then write to the authors
   corrected proofs.
 \end{itemize}
 
-\section{Publishing a new issue}
+\section{Publishing a New Issue}
 
-To publish a new issue, the EIC works with the ``RJournal'' SVN
+To publish a new issue, the EIC works with the \texttt{RJournal} SVN
 repository. The EIC must have the Perl template toolkit
-(\texttt{ttree}) installed.  See
-\url{http://template-toolkit.org/download/index.html}. On Fedora, this
-is provided via the RPM package ``perl-Template-Toolkit''.
+(\texttt{ttree}) installed. See
+\url{http://template-toolkit.org/download/index.html}. 
 
-\subsection{Removing online versions}
+\subsection{Removing Online Previews}
 
 All articles included in the current issue should have their 
 pre-publication online versions removed from the web site. 
 \begin{enumerate}
-\item The appropriate sub-directories of \verb+html/accepted+ are
-  deleted using \verb+'svn remove'+.
+\item The appropriate sub-directories of \texttt{html/accepted} are
+  deleted using \texttt{'svn remove'}.
 \item The corresponding entries in the file \texttt{accepted.txt} are 
   removed.
 \item The listing of accepted articles is refreshed by deleting the
@@ -526,14 +553,16 @@ pre-publication online versions removed from the web site.
   \verb+'ttree -f RJ.ttreerc'+
 \end{enumerate}
 
-\subsection{Creating the issue}
+\subsection{Creating the Issue}
 
 The process of creating a new online issue is simplified by the
 R script \texttt{issue2web.R} which is invoked from the trunk
 directory of RJournal as follows:
+{\small
 \begin{verbatim}
  R CMD BATCH '--args <year-issue> </path/to/Rjournal-adm> publish' issue2web.R
 \end{verbatim}
+}
 where \verb+<year-issue>+ is the current issue number
 (e.g. \texttt{2012-2}) and \verb+</path/to/Rjournal-adm>+ is the
 directory containing the trunk of the Rjournal-adm SVN repository. 
@@ -554,7 +583,7 @@ The EIC publishes the issue by committing the working copy of the SVN
 repository. There will be a delay before the R Journal web site
 synchronizes with the SVN repository.
 
-\subsection{Notifying publication}
+\subsection{Notifying Publication}
 
 The EIC verifies that the current issue is online at
 \url{journal.r-project.org} and sends the following notifications:
@@ -567,7 +596,7 @@ The EIC verifies that the current issue is online at
   and giving the URL of the R Journal web site.
 \item The EIC sends a printed copy of the journal to Thomson Reuters
   (two-sided, colour, bound or stapled in the top-left corner) along
-  with the covering letter \texttt{Rjournal-adm/share/Thomson.tex}
+  with the covering letter Rjournal-adm/share/Thomson.tex.
   (Thomson are evaluating whether they can pull indexing data directly
   from the web site, which should remove the need to do this).
 \end{itemize}
@@ -582,14 +611,19 @@ committee.
 
 Once a new member is found, the following steps take place:
 \begin{itemize}
-\item EIC writes to Martin Maechler requesting SVN access for the new member.
+\item The EIC informs Martin Maechler of the new board member
+\item The new board member follows the instructions at 
+\url{http://svn.r-project.org/htdigest.html} to create a password file
+for the \texttt{Rjournal-adm} realm and mails it to Martin Maechler.
 \item The incoming board member requests access to the mailing lists by
 visiting \url{https://stat.ethz.ch/mailman/listinfo/r-journal-editors}
 and \url{https://stat.ethz.ch/mailman/listinfo/r-journal-advisory}.
-\item The outgoing member should remain subscribed to \verb+r-journal-advisory+
-\item The EIC may take on outstanding handling editor duties of the
-  outgoing member
+\item The outgoing member unsubscribes from \texttt{r-journal-editors}
+  by visiting the web page above, but should remain subscribed to
+  \texttt{r-journal-advisory}
 \end{itemize}
+The EIC may take on outstanding handling editor duties of the outgoing
+member.
 
 \end{document}
 
