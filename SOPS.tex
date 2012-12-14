@@ -560,12 +560,15 @@ R script \texttt{issue2web.R} which is invoked from the trunk
 directory of RJournal as follows:
 {\small
 \begin{verbatim}
- R CMD BATCH '--args <year-issue> </path/to/Rjournal-adm> publish' issue2web.R
+export TMPDIR=. 
+R CMD BATCH '--args <year-issue> </path/to/Rjournal-adm> publish' issue2web.R
 \end{verbatim}
-}
-where \verb+<year-issue>+ is the current issue number
+} where \verb+<year-issue>+ is the current issue number
 (e.g. \texttt{2012-2}) and \verb+</path/to/Rjournal-adm>+ is the
-directory containing the trunk of the Rjournal-adm SVN repository. 
+directory containing the trunk of the Rjournal-adm SVN repository.  If
+using the texlive distribution, it is necessary to set \texttt{TMPDIR}
+to be the current directory because \texttt{bibtex2html} cannot access
+the usual temporary directory \texttt{/tmp}.
 
 This creates two new directories
 \begin{verbatim}
@@ -574,6 +577,7 @@ This creates two new directories
 \end{verbatim}
 The keyword ``publish'' ensures that these new directories are
 added to the SVN repository.
+
 
 The EIC reviews the changes by opening the file
 \texttt{html/index.html} in a web browser and verifying the web
