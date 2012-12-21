@@ -172,6 +172,24 @@ board may handle a new submission if they follow the same procedure.
   (\url{http://www.qtrac.eu/diffpdf.html}).
 \end{itemize}
 
+\subsubsection{Encoding issues}
+
+Occassionally, submissions are received that are not ASCII encoded.
+This may occur when the author has prepared the manuscript on a word
+processor instead of a text editor. Typical problem are
+\begin{itemize}
+\item Non-ASCII versions of single quotes, double quotes and dashes.
+  These will generally substituted for junk characters in the PDF.
+\item A byte-order mark (BOM) at the beginning of the file. This will
+  result in junk appearing at the start of the PDF (Note that text
+  editors will not display the BOM).
+\end{itemize}
+These problems can be fixed by loading the LaTeX source in OpenOffice
+Writer, choosing the appropriate encoding (e.g. ``Western Europe (Apple
+Macintosh'') and then substituting the ASCII characters for the
+smart versions included in the file. The BOM will be removed when
+the file is saved if all non-ASCII characters have been removed.
+
 \section{Handling Editor}
 
 The EIC regularly (e.g., every month) makes a summary of submissions
