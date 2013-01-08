@@ -5,7 +5,7 @@
 
 \title{Standard Operating Procedures for The R Journal}
 \author{Martyn Plummer}
-\date{6 December 2012}
+\date{8 January 2013}
 \maketitle
 
 \section{Editorial Board}
@@ -60,7 +60,7 @@ Board members have access to two subversion (SVN) repositories
 \item[Rjournal-adm] The \texttt{Rjournal-adm} repository is used for
   submission management. The repository is located at
   \url{https://svn.r-project.org/Rjournal-adm/trunk}.
-\item[Rjournal] The \texttt{RJournal} repository is used to maintain
+\item[Rjournal] The \texttt{Rjournal} repository is used to maintain
   the R Journal web site. The repository is located at
   \url{https://svn.r-project.org/Rjournal/trunk}) Changes to the
   \texttt{Rjournal} repository do not immediately affect the web site
@@ -526,9 +526,9 @@ Pre-publication proceeds as follows:
 
 \begin{enumerate}
 \item The EIC checks in a copy of the PDF built from the issue file
-  into the \texttt{RJournal} SVN repository in the sub-directory
+  into the \texttt{Rjournal} SVN repository in the sub-directory
   \texttt{prepub}. From there it is publicly accessible via
-  \url{http://svn.r-project.org/RJournal/trunk/prepub/RJournal_year-issue.pdf}.
+  \url{http://svn.r-project.org/Rjournal/trunk/prepub/RJournal_year-issue.pdf}.
 \item The EIC informs the other editors via a message to
   \url{r-journal-editors@r-project.org} that the pre-publication
   version is ready giving the URL.
@@ -555,7 +555,7 @@ The associate editors write to the authors:
 
 \section{Publishing a New Issue}
 
-To publish a new issue, the EIC works with the \texttt{RJournal} SVN
+To publish a new issue, the EIC works with the \texttt{Rjournal} SVN
 repository. The EIC must have the Perl template toolkit
 (\texttt{ttree}) installed. See
 \url{http://template-toolkit.org/download/index.html}. 
@@ -578,7 +578,7 @@ pre-publication online versions removed from the web site.
 
 The process of creating a new online issue is simplified by the
 R script \texttt{issue2web.R} which is invoked from the trunk
-directory of RJournal as follows:
+directory of the \texttt{Rjournal} SVN repository as follows:
 {\small
 \begin{verbatim}
 export TMPDIR=. 
@@ -649,6 +649,35 @@ and \url{https://stat.ethz.ch/mailman/listinfo/r-journal-advisory}.
 \end{itemize}
 The EIC may take on outstanding handling editor duties of the outgoing
 member.
+
+\appendix
+
+\section{The RJournal.sty file}
+
+The style file for the R Journal is derived from the file
+\texttt{RJournal.dtx} in the subdirectory \texttt{latex} of the
+\texttt{Rjournal} repository. Changes to the style file must be made
+by editing \texttt{RJournal.dtx} and then processing it to produce
+a new style file.
+
+Running latex on \texttt{RJournal.dtx} produces the PDF file
+\texttt{RJournal.pdf}, which documents the contents of the style file.
+To produce \texttt{RJournal.sty} itself, run latex on the wrapper file
+\texttt{RJournal.ins}.
+
+Copies of the style file are also kept in the following locations:
+\begin{itemize}
+\item In the directory \texttt{html/latex} of the \texttt{Rjournal}
+  SVN repository. This is the version to be downloaded by authors.
+  This directory also contains a copy of \texttt{RJournal.dtx} and
+  \texttt{RJournal.pdf}. Note that the license of the docstrip package
+  for latex, which is used by \texttt{RJournal.dtx}, requires that the
+  source file be distributed with the style file.
+\item In the directory \texttt{share} of the \texttt{Rjournal-adm}
+  SVN repository. This is the version that should be used by R Journal
+  editors.
+\end{itemize}
+All copies should be updated when the style file is modified.
 
 \end{document}
 
