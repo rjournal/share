@@ -20,10 +20,10 @@
 %% original source files, as listed above, are part of the
 %% same distribution. (The sources need not necessarily be
 %% in the same archive or directory.)
-\def\fileversion{v0.9}
+\def\fileversion{v0.10}
 \def\filename{RJournal}
-\def\filedate{2012/01/13}
-\def\docdate {2012/01/13}
+\def\filedate{2013/01/08}
+\def\docdate {2013/01/08}
 %%
 %% Package `RJournal' to use with LaTeX2e
 %% Copyright (C) 2010 by the R Foundation
@@ -34,8 +34,10 @@
                         RJournal package]
 \typeout{Package: `\filename\space\fileversion \@spaces <\filedate>'}
 \typeout{English documentation as of <\docdate>}
+
+\RequirePackage[pagebackref]{hyperref}
+\renewcommand{\backref}[1]{[p#1]}
 \RequirePackage{ifthen}
-\RequirePackage{hyperref}
 \newboolean{RJ@driver}
 \DeclareOption{driver}{\setboolean{RJ@driver}{true}}
 \DeclareOption*{\PackageWarning{\filename}{Unknown option
