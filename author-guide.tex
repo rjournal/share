@@ -30,7 +30,7 @@ Computing \citep{ihaka:1996}.
 It features short to medium length articles covering topics
 that might be of interest to users or developers of R, including:
 
-\begin{description}
+\begin{itemize}
 
 \item Short introductions to R packages.
 
@@ -43,7 +43,7 @@ of such analyses in R that is of benefit beyond the specific application.
 \item Hints for newcomers explaining aspects of R that might
   not be obvious from reading the manuals and FAQs.
 
-\end{description}
+\end{itemize}
 
 \emph{The R Journal} intends to reach a wide audience and have a fast-track
 but thorough review process. Papers are expected to be reasonably short,
@@ -118,6 +118,15 @@ packages required by your article should be loaded in this file. Both
 \file{RJwrapper.pdf} and all necessary figure files.
 
 Do not include style files for other latex packages needed by your article.
+
+\section{Reproducible research}
+
+The results presented in figures and tables should be reproducible:
+either the R code to generate the result should be included in a code
+listing in the article, or a separate script file that generates the
+results should be submitted with the article. Articles that include
+extensive code listings should also provide a script file to help
+reviewers step through the code without retyping it.
 
 \section{Language}
 
