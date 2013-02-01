@@ -1,29 +1,15 @@
 %%
-%% This is file `RJournal.sty',
+%% This is file `RJournal1c.sty',
 %% generated with the docstrip utility.
 %%
 %% The original source files were:
 %%
-%% RJournal.dtx  (with options: `package')
+%% RJournal1c.dtx  (with options: `package')
 %% 
-%% IMPORTANT NOTICE:
-%% 
-%% For the copyright see the source file.
-%% 
-%% Any modified versions of this file must be renamed
-%% with new filenames distinct from RJournal.sty.
-%% 
-%% For distribution of the original source see the terms
-%% for copying and modification in the file RJournal.dtx.
-%% 
-%% This generated file may be distributed as long as the
-%% original source files, as listed above, are part of the
-%% same distribution. (The sources need not necessarily be
-%% in the same archive or directory.)
 \def\fileversion{v0.10}
-\def\filename{RJournal}
-\def\filedate{2013/01/08}
-\def\docdate {2013/01/08}
+\def\filename{RJournal1c}
+\def\filedate{2013/01/11}
+\def\docdate {2013/01/11}
 %%
 %% Package `RJournal' to use with LaTeX2e
 %% Copyright (C) 2010 by the R Foundation
@@ -45,8 +31,9 @@
 \ProcessOptions\relax
 \ifthenelse{\boolean{RJ@driver}}{}{
 \RequirePackage{tikz}
-\RequirePackage{multicol,graphicx,color,fancyhdr}
+\RequirePackage{graphicx,color,fancyhdr}
 \RequirePackage{amsmath}
+\RequirePackage{placeins}
 \IfFileExists{upquote.sty}{\RequirePackage{upquote}}{}
 \newcommand{\volume}[1]{\def\RJ@volume{#1}}
 \newcommand{\volnumber}[1]{\def\RJ@number{#1}}
@@ -56,10 +43,9 @@
 \renewcommand{\author}[1]{\def\RJ@author{#1}}
 \renewcommand{\title}[1]{\def\RJ@title{#1}}
 \newcommand{\subtitle}[1]{\def\RJ@subtitle{#1}}
-\newenvironment{article}{%
-  \author{}\title{}\subtitle{}}{\end{multicols}}
+\newenvironment{article}{\author{}\title{}\subtitle{}\FloatBarrier}{\FloatBarrier}
 \renewcommand{\maketitle}{
-  \begin{multicols}{2}[\chapter{\RJ@title}\refstepcounter{chapter}][3cm]
+    \chapter{\RJ@title}\refstepcounter{chapter}
     \ifx\empty\RJ@subtitle\else\noindent\textbf{\RJ@subtitle}
     \par\nobreak\addvspace{\baselineskip}\fi
     \ifx\empty\RJ@author\else\noindent\textit{\RJ@author}
@@ -76,7 +62,6 @@
     \phantomsection\normalfont\Huge\bfseries\raggedright}}
 \renewcommand*\l@chapter{\@dottedtocline{0}{0pt}{1em}}
 \newcommand{\review}[1]{
-  \begin{multicols}{2}
     \pdfbookmark[1]{#1}{#1}
     \section*{#1}
     \addtocontents{toc}{\protect\contentsline{chapter}{#1}{\thepage}{#1.1}}
@@ -84,16 +69,6 @@
 \renewcommand{\abstract}[1]{\begin{center}\begin{minipage}{0.92\linewidth}
     \textbf{Abstract } #1 \end{minipage}\end{center} \subsubsection{} \vspace{-12pt}}
 \def\@schapter#1{\section*#1}
-\renewenvironment{figure}[1][]{%
-  \def\@captype{figure}
-  \noindent
-  \begin{minipage}{\columnwidth}}{%
-  \end{minipage}\par\addvspace{\baselineskip}}
-\renewenvironment{table}[1][]{%
-  \def\@captype{table}
-  \noindent
-  \begin{minipage}{\columnwidth}}{%
-  \end{minipage}\par\addvspace{\baselineskip}}
 \numberwithin{equation}{chapter}
 \renewcommand{\theequation}{\@arabic\c@equation}
 \renewcommand{\thefigure}{\@arabic\c@figure}
@@ -150,8 +125,6 @@ fill=white,inner sep=2em, very thick]
 \setlength{\textwidth}{17cm}
 \setlength{\oddsidemargin}{-6mm}
 \setlength{\evensidemargin}{-6mm}
-\setlength{\columnseprule}{.1pt}
-\setlength{\columnsep}{20pt}
 %%   sf &  almost european \\
 \RequirePackage{pslatex}
 \RequirePackage{palatino,mathpazo}
@@ -231,4 +204,4 @@ fill=white,inner sep=2em, very thick]
 \RequirePackage{amsfonts}
 \endinput
 %%
-%% End of file `RJournal.sty'.
+%% End of file `RJournal1c.sty'.
