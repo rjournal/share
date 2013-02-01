@@ -1,0 +1,73 @@
+\title{Capitalized Title Here}
+\author{by Author One, Author Two and Author Three}
+
+\maketitle
+
+\abstract{
+An abstract of less than 150 words.
+}
+
+Introductory section which may include references in parentheses, say
+\citep{R:Ihaka+Gentleman:1996} or cite a reference such as
+\citet{R:Ihaka+Gentleman:1996} in the text.
+
+\section{Section title in sentence case}
+
+This section may contain a figure such as Figure \ref{figure:onecolfig}.
+
+\begin{figure}
+\vspace*{.1in}
+\framebox[\textwidth]{\hfill \raisebox{-.45in}{\rule{0in}{1in}}
+                      A picture goes here \hfill}
+\caption{\label{figure:onecolfig}
+A normal figure only occupies one column.}
+\end{figure}
+
+\section{Another section}
+
+There will likely be several sections, perhaps including code snippets, such
+as
+\begin{example}
+  x <- 1:10
+  result <- myFunction(x)
+\end{example}
+
+\section{Summary}
+
+This file is only a basic article template. For full details of \emph{The R Journal}
+style and information on how to prepare your article for submission, see the
+\href{http://journal.r-project.org/latex/RJauthorguide.pdf}{Instructions for Authors}.
+
+%\bibliography{example}
+
+\begin{thebibliography}{1}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+
+\bibitem[Ihaka and Gentleman(1996)]{R:Ihaka+Gentleman:1996}
+R.~Ihaka and R.~Gentleman.
+\newblock R: A language for data analysis and graphics.
+\newblock {\em Journal of Computational and Graphical Statistics}, 5\penalty0
+  (3):\penalty0 299--314, 1996.
+\newblock URL \url{http://www.amstat.org/publications/jcgs/}.
+
+\end{thebibliography}
+
+\address{Author One\\
+  Affiliation\\
+  Address\\
+  Country}\\
+\email{author1@work}
+
+\address{Author Two\\
+  Affiliation\\
+  Address\\
+  Country}\\
+\email{author2@work}
+
+\address{Author Three\\
+  Affiliation\\
+  Address\\
+  Country}\\
+\email{author3@work}
