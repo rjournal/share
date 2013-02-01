@@ -6,13 +6,9 @@
 
 \begin{document}
 
-%\renewcommand{\sectionmark}[1]{\markright{#1}{}}
-%\fancyhf{}
-%\fancyhead[LO,RE]{\textsc{\rightmark}}
-%\fancyhead[RO,LE]{\textsc{Instructions for Authors}}
 \fancyhf{}
-\fancyhead[LO,RE]{\textsc{Instructions for Authors}}
-\fancyhead[RO,LE]{\thepage}
+\fancyhead[L]{\textsc{Instructions for Authors}}
+\fancyhead[R]{\thepage}
 
 \begin{article}
 \title{Instructions for Authors}
@@ -30,22 +26,22 @@ with information for preparing submissions to the \emph{Journal}.
 \section{Introduction}
 
 \emph{The R Journal} is the refereed journal of the R Project for Statistical
-Computing \citep{R:Ihaka+Gentleman:1996}.
+Computing \citep{ihaka:1996}.
 It features short to medium length articles covering topics
 that might be of interest to users or developers of R, including:
 
 \begin{description}
 
-\item[Add-on packages:] Short introductions to R extension packages.
+\item Short introductions to R packages.
 
-\item[Programmer's Niche:] Hints for programming in R.
-
-\item[Help Desk:] Hints for newcomers explaining aspects of R that might
-  not be obvious from reading the manuals and FAQs.
-
-\item[Applications:] Demonstrating how a new or existing technique can be
+\item Demonstrating how a new or existing technique can be
 applied in an area of current interest using R, providing a fresh view
 of such analyses in R that is of benefit beyond the specific application.
+
+\item Hints for programming in R.
+
+\item Hints for newcomers explaining aspects of R that might
+  not be obvious from reading the manuals and FAQs.
 
 \end{description}
 
@@ -86,9 +82,7 @@ to prepare a submission for \emph{The R Journal}.
 
 \section{Preparing a submission}
 
-Please send submissions to regular columns (Programmer's Niche, Help Desk)
-to the respective column editor, all other submissions to the Editor-in-Chief
-or a member of the editorial board.
+Please send submissions to the Editor-in-Chief.
 
 The following files provide a template for preparing an article for submission
 to \emph{The R Journal}:
@@ -103,9 +97,11 @@ to \emph{The R Journal}:
 
 \item[Article template:] \file{RJtemplate.tex}.
 
+\item[Bibliography template:] \file{RJreferences.bib}.
+
 \end{description}
 
-Running \code{pdflatex} on \file{RJwrapper.tex} a couple of times
+Running \code{pdflatex} and \code{bibtex} on \file{RJwrapper.tex} a couple of times
 (to get the references right) will produce
 \file{RJwrapper.pdf}, which shows how the template file would be
 typeset in an \emph{R Journal} issue.
@@ -119,8 +115,7 @@ and one by Bill Venables and Brian Ripley would be in the file
 \file{RJwrapper.tex} must then be modified to include your article; all \LaTeX{}
 packages required by your article should be loaded in this file. Both
 \file{.tex} files should be submitted, along with the compiled
-\file{RJwrapper.pdf} and all necessary figure files (the \strong{References} section
-describes how a bibliography may be included within the article \file{.tex} file).
+\file{RJwrapper.pdf} and all necessary figure files.
 
 Do not include style files for other latex packages needed by your article.
 
@@ -296,50 +291,8 @@ which will appear as $\sum_{1=1}^{n}\left(X_{i}^{\prime} - \overline{X}^{\prime}
 
 \end{itemize}
 
-%The commands \verb|\P|, \verb|\E|, \verb|\VAR|, \verb|\COV|, and \verb|\COR| produce symbols
-%for probability, expectation, variance, covariance, and correlation.
-%For example, Chebyshev's inequality
-%\begin{displaymath}
-%\P\left(\left|\xi - \E\xi\right| > \lambda\right) \le \frac{\VAR\left(\xi\right)}{\lambda^2}
-%\end{displaymath}
-%can be coded as
-%\begin{verbatim}
-%\P\left(\left|\xi - \E\xi\right| > \lambda\right)
-%  \le \frac{\VAR\left(\xi\right)}{\lambda^2}
-%\end{verbatim}
-%
-%The symbols
-%\begin{displaymath}
-%\mathbb{N}\quad\mathbb{Z}\quad\mathbb{Q}\quad\mathbb{R}\quad\mathbb{C}
-%\end{displaymath}
-%for the positive integers, the integers, and the rational, real and
-%complex numbers, respectively, can be obtained using \verb|\mathbb| from
-%package \pkg{amsfonts} as
-%\verb|\mathbb{N}|, \verb|\mathbb{Z}|, \verb|\mathbb{Q}|, \verb|\mathbb{R}|,
-%and \verb|\mathbb{C}|.
 
 \section{Figures and tables}
-
-Currently, \emph{The R Journal} is typeset in two columns.  By
-default, figures and tables will occupy only one column (see Figure
-\ref{figure:onecolfig}). Single-column figures and tables are not
-floating, so will appear exactly where they are placed in the
-text. This can leave large amounts of unwanted white space, which may
-require some manual adjustment to the placement of the table or figure
-code.
-
-The \verb|figure*| or \verb|table*| environments create a figure or
-table that spans both columns (see Figure \ref{figure:bibexample}).
-Two-column figures and tables have limited floating capability: they
-may appear at the top of the next page or on a page of their own.
-
-\begin{figure}
-\vspace*{.1in}
-\framebox[\textwidth]{\hfill \raisebox{-.45in}{\rule{0in}{1in}}
-                      A picture goes here \hfill}
-\caption{\label{figure:onecolfig}
-A normal figure only occupies one column.}
-\end{figure}
 
 Horizontal lines in tables should use commands from the
 booktabs package, i.e.\ \verb|\toprule| for the top of the table,
@@ -369,16 +322,18 @@ and a \file{.bib} file that contains the
 references in {\sc Bib}\TeX{} format.\footnote{We use the \pkg{natbib}
 package for citations.}  The citation in the first
 paragraph of this style guide is of the form
-\verb|\citep{R:Ihaka+Gentleman:1996}|.  Figure \ref{figure:bibexample}
+\verb|\citep{ihaka:1996}|.  Figure \ref{figure:bibexample}
 shows an example file called \file{example.bib} which contains
 a single reference.
 
 A bibliography is produced from \file{example.bib}
 by placing the following line in \file{RJtemplate.tex} (or
 whatever you end up calling it):
+
 \begin{verbatim}
 \bibliography{example}
 \end{verbatim}
+
 and running \code{pdflatex} then \code{bibtex} on the file
 \file{RJwrapper.tex}, then running \code{pdflatex} as many times as
 necessary until \LaTeX{} stops complaining about undefined citations.
@@ -445,11 +400,11 @@ The steps involved in preparing an article for submission to \emph{The
 and \file{RJournal.sty}.
 
 \item Rename \file{RJtemplate.tex} using the author's or authors' names
-(say, \file{Yourname.tex}), and replace its
+(say, \file{Yourlastname.tex}), and replace its
 contents with the contents of your article.
 
-\item Create a \file{Yourname.bib} BibTeX file and add
-\verb|\bibliography{Yourname}| at the end of \file{Yourname.tex}.
+\item Create a \file{Yourlastname.bib} BibTeX file and add
+\verb|\bibliography{Yourlastname}| at the end of \file{Yourlastname.tex}.
 
 \item Modify \file{RJwrapper.tex} to include \file{Yourname.tex} rather
 than \file{RJtemplate.tex}. Include all necessary \LaTeX{} \verb|\usepackage|
@@ -476,20 +431,8 @@ Parts of this style guide were adapted from documentation originally
 prepared by Kurt Hornik and Friedrich Leisch for the \emph{R Journal}
 \LaTeX{} style file.
 
-%\renewcommand{\bibsection}{\section{Bibliography}}
+\bibliography{RJreferences}
 
-\begin{thebibliography}{1}
-\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-\expandafter\ifx\csname url\endcsname\relax
-  \def\url#1{{\tt #1}}\fi
-\bibitem[Ihaka and Gentleman(1996)]{R:Ihaka+Gentleman:1996}
-R.~Ihaka and R.~Gentleman.
-\newblock R: A language for data analysis and graphics.
-\newblock {\em Journal of Computational and Graphical Statistics}, 5\penalty0
-  (3):\penalty0 299--314, 1996.
-\newblock URL \url{http://www.amstat.org/publications/jcgs/}.
-
-\end{thebibliography}
 \end{article}
 
 \end{document}
