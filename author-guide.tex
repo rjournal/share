@@ -82,8 +82,6 @@ to prepare a submission for \emph{The R Journal}.
 
 \section{Preparing a submission}
 
-Please send submissions to the Editor-in-Chief.
-
 The following files provide a template for preparing an article for submission
 to \emph{The R Journal}:
 
@@ -101,23 +99,40 @@ to \emph{The R Journal}:
 
 \end{description}
 
-Running \code{pdflatex} and \code{bibtex} on \file{RJwrapper.tex} a couple of times
-(to get the references right) will produce
-\file{RJwrapper.pdf}, which shows how the template file would be
-typeset in an \emph{R Journal} issue.
+The steps involved in preparing an article for submission to \emph{The
+  R Journal} are as follows:
 
-\file{RJtemplate.tex} should be modified to contain the body of your
-article and renamed according to the author's or authors' surnames. For
-example, an article by John Chambers would be in the file \file{Chambers.tex},
-and one by Bill Venables and Brian Ripley would be in the file
-\file{VenablesRipley.tex}. 
+\begin{itemize}
 
-\file{RJwrapper.tex} must then be modified to include your article; all \LaTeX{}
-packages required by your article should be loaded in this file. Both
-\file{.tex} files should be submitted, along with the compiled
-\file{RJwrapper.pdf} and all necessary figure files.
+\item Download \file{RJwrapper.tex}, \file{RJtemplate.tex},
+and \file{RJournal.sty}.
 
-Do not include style files for other latex packages needed by your article.
+\item Rename \file{RJtemplate.tex} using the author's or authors' last names
+(say, \file{Yourlastname.tex}), and replace its
+contents with the contents of your article.
+
+\item Create a \file{Yourlastname.bib} BibTeX file and add
+\verb|\bibliography{Yourlastname}| at the end of \file{Yourlastname.tex}.
+
+\item Modify \file{RJwrapper.tex} to include \file{Yourname.tex} rather
+than \file{RJtemplate.tex}. Include all necessary \LaTeX{} \verb|\usepackage|
+commands in the modified \file{RJwrapper.tex}.
+
+\item Run \code{pdflatex} on \file{RJwrapper.tex} a couple of times
+(until all figure references are resolved) to produce \file{RJwrapper.pdf}.
+
+\item Iterate until \file{RJwrapper.pdf} looks right.
+
+\item Then submit the following files to the Editor-in-Chief:
+  \begin{itemize}
+  \item The modified \file{RJwrapper.tex}
+  \item \file{RJwrapper.pdf}
+  \item \file{Yourname.tex}
+  \item \file{Yourname.bib}
+  \item all necessary figure files.
+  \item Do not include style files for other latex packages needed by your article.
+  \end{itemize}
+\end{itemize}
 
 \section{Reproducible research}
 
@@ -397,42 +412,6 @@ command to format the package name in the \code{TITLE} field.
 \subsection{Citing R}
 
 Articles in \emph{The R Journal} do not include a citation of R itself.
-
-\section{Summary}
-
-The steps involved in preparing an article for submission to \emph{The
-  R Journal} are as follows:
-
-\begin{itemize}
-
-\item Download \file{RJwrapper.tex}, \file{RJtemplate.tex},
-and \file{RJournal.sty}.
-
-\item Rename \file{RJtemplate.tex} using the author's or authors' names
-(say, \file{Yourlastname.tex}), and replace its
-contents with the contents of your article.
-
-\item Create a \file{Yourlastname.bib} BibTeX file and add
-\verb|\bibliography{Yourlastname}| at the end of \file{Yourlastname.tex}.
-
-\item Modify \file{RJwrapper.tex} to include \file{Yourname.tex} rather
-than \file{RJtemplate.tex}. Include all necessary \LaTeX{} \verb|\usepackage|
-commands in the modified \file{RJwrapper.tex}.
-
-\item Run \code{pdflatex} on \file{RJwrapper.tex} a couple of times
-(until all figure references are resolved) to produce \file{RJwrapper.pdf}.
-
-\item Iterate until \file{RJwrapper.pdf} looks right.
-
-\item Then submit
-  \begin{itemize}
-  \item The modified \file{RJwrapper.tex};
-  \item \file{RJwrapper.pdf};
-  \item \file{Yourname.tex};
-  \item \file{Yourname.bib};
-  \item and all necessary figure files.
-  \end{itemize}
-\end{itemize}
 
 \section{Acknowledgment}
 
