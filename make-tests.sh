@@ -16,4 +16,4 @@ convert test-misc.pdf -alpha remove test-misc%02d.png
 pdflatex test-many-authors.tex
 convert test-many-authors.pdf -alpha remove test-many-authors%02d.png
 
-rm *.{aux,syntex.gz}
+rm *.{aux}
