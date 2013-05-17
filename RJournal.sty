@@ -35,6 +35,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{placeins}
 \RequirePackage{upquote}
+\RequirePackage{setspace}
 \newcommand{\volume}[1]{\def\RJ@volume{#1}}
 \newcommand{\volnumber}[1]{\def\RJ@number{#1}}
 \renewcommand{\date}[1]{\def\RJ@date{#1}}
@@ -74,10 +75,10 @@
     \addtocontents{toc}{\protect\contentsline{chapter}{#1}{\thepage}{#1.1}}
 }
 \renewcommand{\abstract}[1]{
-  \begin{center}\begin{minipage}{0.92\linewidth}
-    \textbf{Abstract } #1
+  \begin{center}\begin{minipage}{0.92\linewidth}\setstretch{1}
+    \textbf{Abstract} #1
   \end{minipage}\end{center}
-  \subsubsection{}\vspace{-12pt}
+  \subsubsection{}\vspace{-20pt}
 }
 \def\@schapter#1{\section*#1}
 \numberwithin{equation}{chapter}
@@ -148,7 +149,7 @@ fill=white,inner sep=2em, very thick]
   urlcolor=link
 }
 
-\linespread{1.05}
+\setstretch{1.05}
 \setlength{\parskip}{3pt}
 \newcommand{\R}{R}
 \newcommand{\address}[1]{\addvspace{\baselineskip}\noindent\emph{#1}}

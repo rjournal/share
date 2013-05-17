@@ -30,7 +30,8 @@
 % \changes{v0.10}{2013/01/08}{Added back-links from bibliography}
 % \changes{v0.11}{2013/01/11}{Dropped two-column format. Dropped custom figure and table environments.  Use placeins package to keep figures and tables (now floating) under control.}
 % \changes{v0.12}{2013/04/11}{Tweaks to one column format. Use inconsolata for
-%  for code. Switch example to verbatim; add example* for alltt.}
+%  for code. Switch example to verbatim; add example* for alltt. Slightly
+%  increased spacing between lines and paragraphs.}
 % \fi
 %
 % \MakeShortVerb{\|}
@@ -190,6 +191,7 @@
 \RequirePackage{amsmath}
 \RequirePackage{placeins}
 \RequirePackage{upquote}
+\RequirePackage{setspace}
 %    \end{macrocode}
 %
 % \subsubsection{Basic Structure}
@@ -301,10 +303,10 @@
 % give the desired style
 %    \begin{macrocode}
 \renewcommand{\abstract}[1]{
-  \begin{center}\begin{minipage}{0.92\linewidth} 
-    \textbf{Abstract } #1 
+  \begin{center}\begin{minipage}{0.92\linewidth}\setstretch{1}
+    \textbf{Abstract} #1 
   \end{minipage}\end{center}
-  \subsubsection{}\vspace{-12pt}
+  \subsubsection{}\vspace{-20pt}
 }
 %    \end{macrocode}
 % We want bibliographies as starred sections within articles.  As the
@@ -438,7 +440,7 @@ fill=white,inner sep=2em, very thick]
   urlcolor=link
 }
 
-\linespread{1.05}
+\setstretch{1.05}
 \setlength{\parskip}{3pt}
 %    \end{macrocode}
 %
