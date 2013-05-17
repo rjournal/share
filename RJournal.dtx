@@ -122,31 +122,9 @@
 %
 % \section{The Code}
 %
-% \subsection{The Batch File}
-%
-% First comes the code for creating the batch file \file{\filename.ins}
-% which in turn can be used for producing the package and driver files.
-%
-%    \begin{macrocode}
-%<*install>
-\begin{filecontents}{\filename.ins}
-% Simply TeX or LaTeX this file to extract various files from the source
-% file `RJournal.dtx'.
-  \def\filedate{2001/01/05} \def\batchfile{RJournal.ins} \input
-  docstrip.tex \preamble
-\endpreamble
-\generateFile{RJournal.drv}{t}{\from{RJournal.dtx}{driver}}
-\generateFile{RJournal.sty}{t}{\from{RJournal.dtx}{package}}
-\Msg{*****************************************************************}
-\Msg{* For documentation, run LaTeX on RJournal.dtx or RJournal.drv. *}
-\Msg{*****************************************************************}
-\end{filecontents}
-%</install>
-%    \end{macrocode}
-%
 % \subsection{The Driver}
 %
-% Next comes the documentation driver file for \TeX{}, i.e., the file
+% First comes the documentation driver file for \TeX{}, i.e., the file
 % that will produce the documentation you are currently reading.  It
 % will be extracted from this file by the \texttt{docstrip} program.
 % Since it is the first code in the file one can alternatively process
