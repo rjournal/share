@@ -160,22 +160,6 @@ fill=white,inner sep=2em, very thick]
 \newcommand{\R}{R}
 \newcommand{\address}[1]{\addvspace{\baselineskip}\noindent\emph{#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\normalfont\texttt{#1}}}
-\RequirePackage{verbatim}
-\def\boxedverbatim{%
-  \def\verbatim@processline{%
-    {\setbox0=\hbox{\the\verbatim@line}%
-    \hsize=\wd0 \the\verbatim@line\par}}%
-  \@minipagetrue
-  \@tempswatrue
-  \setbox0=\vbox
-  \bgroup\small\verbatim
-}
-\def\endboxedverbatim{%
-  \endverbatim
-  \unskip\setbox0=\lastbox
-  \egroup
-  \fbox{\box0}
-}
 } % \ifthenelse{\boolean{RJ@driver}}
 \DeclareRobustCommand\code{\bgroup\@noligs\@codex}
 \def\@codex#1{\texorpdfstring%

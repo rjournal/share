@@ -460,29 +460,6 @@ fill=white,inner sep=2em, very thick]
 \newcommand{\email}[1]{\href{mailto:#1}{\normalfont\texttt{#1}}}
 %    \end{macrocode}
 %
-% \begin{environment}{boxedverbatim}
-% Used for creating a boxed (small) verbatim environment. 
-% The code is taken from package \pkg{moreverb}.  Note that we need to
-% use |verbatim| rather than |alltt|.
-%    \begin{macrocode}
-\RequirePackage{verbatim}
-\def\boxedverbatim{%
-  \def\verbatim@processline{%
-    {\setbox0=\hbox{\the\verbatim@line}%
-    \hsize=\wd0 \the\verbatim@line\par}}%
-  \@minipagetrue
-  \@tempswatrue
-  \setbox0=\vbox
-  \bgroup\small\verbatim
-}
-\def\endboxedverbatim{%
-  \endverbatim
-  \unskip\setbox0=\lastbox
-  \egroup
-  \fbox{\box0}
-}
-%    \end{macrocode}
-% \end{environment}
 %
 % Finally, we turn on fancy page style.
 %    \begin{macrocode}
