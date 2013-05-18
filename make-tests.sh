@@ -1,9 +1,6 @@
 #!/bin/bash
 set -e
 
-# Update style file
-latex RJournal.ins
-
 # Build all tests
 
 cd tests/
