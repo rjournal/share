@@ -1,6 +1,7 @@
 \documentclass[a4paper]{report}
 \usepackage{RJournal}
 \usepackage[round]{natbib}
+\usepackage{moreverb}
 \usepackage{booktabs}
 \bibliographystyle{abbrvnat}
 
@@ -130,7 +131,7 @@ commands in the modified \file{RJwrapper.tex}.
   \item \file{Yourname.tex}
   \item \file{Yourname.bib}
   \item all necessary figure files.
-  \item Do not include style files for other latex packages needed by your article.
+  \item Do not include \file{RJournal.sty} or style files for other latex packages needed by your article.
   \end{itemize}
 \end{itemize}
 
@@ -155,7 +156,7 @@ sexist language, such as the use of `he' for individuals of indefinite gender.
 
 The \LaTeX{} style file \file{RJournal.sty} provides a much simplified version of the
 commands for marking words and phrases used by
-Texinfo\footnote{\url{http://www.gnu.org/software/texinfo/}} (but note that the \LaTeX{} special
+Texinfo\marginpar{\url{http://www.gnu.org/software/texinfo/}} (but note that the \LaTeX{} special
 characters still need special treatment). Please use these commands and the other
 mark-up facilities described in this section rather than attempting to format
 output and other elements visually. Unless it is absolutely necessary, please refrain from
@@ -343,7 +344,7 @@ A simple table with booktabs formatting.}
 The standard way to produce citations for \emph{The R Journal} is via the
 \verb|\citep| and \verb|\citet| commands (and their relatives)
 and a \file{.bib} file that contains the
-references in {\sc Bib}\TeX{} format.\footnote{We use the \pkg{natbib}
+references in {\sc Bib}\TeX{} format.\marginpar{We use the \pkg{natbib}
 package for citations.}  The citation in the first
 paragraph of this style guide is of the form
 \verb|\citep{ihaka:1996}|.  Figure \ref{figure:bibexample}
@@ -363,7 +364,7 @@ and running \code{pdflatex} then \code{bibtex} on the file
 necessary until \LaTeX{} stops complaining about undefined citations.
 
 \begin{figure*}[b]
-\begin{center}
+\centering
 \begin{boxedverbatim}
 @ARTICLE{R:Ihaka+Gentleman:1996,
   AUTHOR = {Ross Ihaka and Robert Gentleman},
@@ -376,7 +377,6 @@ necessary until \LaTeX{} stops complaining about undefined citations.
   URL = {http://www.amstat.org/publications/jcgs/}
 }
 \end{boxedverbatim}
-\end{center}
 \caption{\label{figure:bibexample}
 The contents of a file called \file{example.bib}.  This figure
 uses the \code{figure*} environment to span
