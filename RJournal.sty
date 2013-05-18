@@ -132,11 +132,11 @@ fill=white,inner sep=2em, very thick]
 \setcounter{tocdepth}{2}
 \clearpage
 }
-\setlength{\textheight}{250mm}
-\setlength{\topmargin}{-10mm}
-\setlength{\textwidth}{17cm}
-\setlength{\oddsidemargin}{-6mm}
-\setlength{\evensidemargin}{-6mm}
+\RequirePackage{geometry}
+\geometry{a4paper,
+   width=17cm, top=1cm, bottom=1cm,
+   includeall,
+   footskip=1.5cm, marginpar=0cm}
 \RequirePackage{palatino,mathpazo}
 \RequirePackage{inconsolata}
 \RequirePackage[T1]{fontenc}
