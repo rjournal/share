@@ -218,6 +218,26 @@ fill=white,inner sep=2em, very thick]
 \newcommand{\COV}{\operatorname{cov}}
 \newcommand{\COR}{\operatorname{cor}}
 \RequirePackage{amsfonts}
+
+\RequirePackage[font=small, labelfont=bf, singlelinecheck=false]{caption}
+\RequirePackage{marginfix}
+
+\RequirePackage{environ}
+\NewEnviron{marginfig}{
+\marginpar{
+  \captionsetup{type=figure,skip=5pt}
+  \BODY
+}}
+\NewEnviron{widefig}[1][]{
+\begin{figure}[#1]
+\parbox{\dimexpr\textwidth+\marginparwidth+\marginparsep\relax}{%
+  \captionsetup{margin={0cm,4.5cm}}
+  \BODY
+}
+\end{figure}
+}
+
+
 \endinput
 %%
 %% End of file `RJournal.sty'.

@@ -32,7 +32,7 @@
 % \changes{v0.12}{2013/04/11}{Tweaks to one column format. Use inconsolata for
 %  for code. Switch example to verbatim; add example* for alltt. Slightly
 %  increased spacing between lines and paragraphs. Don't use alternating 
-%  headers. Use 4cm marginpar.}
+%  headers. Use 4cm marginpar. Support for wide (widefig) and margin figures (marginfig).}
 % \fi
 %
 % \MakeShortVerb{\|}
@@ -595,7 +595,29 @@ fill=white,inner sep=2em, very thick]
 %    \begin{macrocode}
 \RequirePackage{amsfonts}
 %    \end{macrocode}
-%
+
+%    \begin{macrocode}
+\RequirePackage[font=small, labelfont=bf, singlelinecheck=false]{caption}
+\RequirePackage{marginfix}
+
+\RequirePackage{environ}
+\NewEnviron{marginfig}{
+\marginpar{
+  \captionsetup{type=figure,skip=5pt}
+  \BODY
+}}
+\NewEnviron{widefig}[1][]{
+\begin{figure}[#1]
+\parbox{\dimexpr\textwidth+\marginparwidth+\marginparsep\relax}{%
+  \captionsetup{margin={0cm,4.5cm}}
+  \BODY
+}
+\end{figure}
+}
+
+
+%    \end{macrocode}
+
 % This ends the implementation of the \pkg{\filename} package.
 %    \begin{macrocode}
 %</package>
