@@ -208,7 +208,8 @@
 %    \begin{macrocode}
 \newcommand{\volume}[1]{\def\RJ@volume{#1}}
 \newcommand{\volnumber}[1]{\def\RJ@number{#1}}
-\renewcommand{\date}[1]{\def\RJ@date{#1}}
+\renewcommand{\month}[1]{\def\RJ@month{#1}}
+\renewcommand{\year}[1]{\def\RJ@year{#1}}
 %    \end{macrocode}
 %
 % We do not want numbered sections.
@@ -379,11 +380,6 @@ fill=white,inner sep=2em, very thick]
 % Now set up the header and footer information for the rest of the
 % document.
 %    \begin{macrocode}  
-  \fancyhf{}
-  \fancyhead[L]{\textsc{\RJ@sectionhead}}
-  \fancyhead[R]{\thepage}
-  \fancyfoot[L]{The R Journal Vol. \RJ@volume/\RJ@number, \RJ@date}
-  \fancyfoot[R]{ISSN 2073-4859}
   \thispagestyle{empty}
 %    \end{macrocode}
 % And finally, put in the TOC box. Note the way |tocdepth| is adjusted
@@ -411,7 +407,17 @@ fill=white,inner sep=2em, very thick]
    width=17cm, top=1cm, bottom=1cm, 
    includeall, 
    footskip=1.5cm, marginpar=4cm, marginparsep=0.25cm}
+
 \fancyhfoffset[R]{4.25cm}
+\fancyhead{}
+\fancyhead[L]{\textsc{\RJ@sectionhead}}
+\fancyhead[R]{\thepage}
+\fancyfoot{}
+\fancyfoot[L]{The R Journal Vol. \RJ@volume/\RJ@number, \RJ@month}
+\fancyfoot[R]{ISSN 2073-4859}
+\pagestyle{fancy}
+
+
 %    \end{macrocode}
 %
 % \paragraph{Fonts.}
@@ -480,7 +486,6 @@ fill=white,inner sep=2em, very thick]
 %
 % Finally, we turn on fancy page style.
 %    \begin{macrocode}
-\pagestyle{fancy}
 } % \ifthenelse{\boolean{RJ@driver}}
 %    \end{macrocode}
 %
