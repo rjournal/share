@@ -281,19 +281,16 @@
 
 % Example environments ---------------------------------------------------------
 \RequirePackage{upquote}
-
+\RequirePackage{fancyvrb}
 \RequirePackage{alltt}
-\newenvironment{example*}{\begin{alltt}}{\end{alltt}}
-\newenvironment{smallexample}{\begin{alltt}\small}{\end{alltt}}
-\newenvironment{display}{\list{}{}\item\relax}{\endlist}
-\newenvironment{smallverbatim}{\small\verbatim}{\endverbatim}
+
+\DefineVerbatimEnvironment{example}{Verbatim}{}
+\renewenvironment{example*}{\begin{alltt}}{\end{alltt}}
 
 % Support for output from Sweave, and generic session style code
 % These used to have fontshape=sl for Sinput/Scode/Sin, but pslatex
 % won't use a condensed font in that case.
 
-\RequirePackage{fancyvrb}
-\DefineVerbatimEnvironment{example}{Verbatim}{}
 \DefineVerbatimEnvironment{Sinput}{Verbatim}{fontsize=\small}
 \DefineVerbatimEnvironment{Soutput}{Verbatim}{fontsize=\small}
 \DefineVerbatimEnvironment{Scode}{Verbatim}{fontsize=\small}
@@ -302,8 +299,6 @@
 \newenvironment{Schunk}{}{}
 
 % Mathematics ------------------------------------------------------------------
-
-\RequirePackage{amsmath}
 
 % The implementation of |\operatorname| is similar to the mechanism
 % \LaTeXe{} uses for functions like sin and cos, and simpler than the
