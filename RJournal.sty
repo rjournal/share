@@ -19,10 +19,10 @@
 \geometry{a4paper, 
    width=17cm, top=1cm, bottom=1cm, 
    includeall, 
-   footskip=1.5cm, marginpar=4cm, marginparsep=0.25cm}
+   footskip=1.5cm, marginpar=4cm, marginparsep=0.5cm}
 
 \RequirePackage{fancyhdr}
-\fancyhfoffset[R]{4.25cm}
+\fancyhfoffset[R]{4.5cm}
 \fancyhead{}
 \fancyhead[L]{\textsc{\RJ@sectionhead}}
 \fancyhead[R]{\thepage}
@@ -47,10 +47,11 @@
 
 \RequirePackage[pagebackref]{hyperref}
 \renewcommand{\backref}[1]{[p#1]}
+\RequirePackage{breakurl}
 
 % Dark blue colour for all links
 \RequirePackage{color}
-\definecolor{link}{rgb}{0,0,0.3}
+\definecolor{link}{rgb}{0.45,0.51,0.67}
 \hypersetup{
   colorlinks,%
   citecolor=link,%
@@ -238,10 +239,10 @@
 
 % A margin note that behaves like a foot note
 \newcounter{marginnote}% a new counter for use in margin notes
-\newcommand{\marginnote}[1]{
-  \refstepcounter{marginnote}
-  \mbox{\textsuperscript{\themarginnote}}
-  \marginpar{\mbox{\textsuperscript{\themarginnote}} {\small #1}}
+\newcommand{\marginnote}[1]{%
+  \refstepcounter{marginnote}%
+  \mbox{\textsuperscript{\themarginnote}}%
+  \marginpar{\raggedright \footnotesize \textsuperscript{\themarginnote} #1}
 }
 
 
