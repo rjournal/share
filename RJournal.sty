@@ -107,10 +107,14 @@
 % give the desired style
 
 \renewcommand{\abstract}[1]{
-  \begin{center}\begin{minipage}{0.92\linewidth}\setstretch{1}
-    \textbf{Abstract} #1 
-  \end{minipage}\end{center}
-  \subsubsection{}\vspace{-20pt}
+  \noindent
+  \begin{center}
+  \begin{minipage}{\textwidth}%
+  \setstretch{1}
+  \small
+  \textbf{Abstract} #1 
+  \end{minipage}
+  \end{center}
 }
 
 % The real work is done by a redefined version of |\maketitle|.  Note
@@ -118,7 +122,9 @@
 % need to increment the chapter counter, so that figures get correct
 % labelling.
 
-\renewcommand{\maketitle}{
+\renewcommand{\maketitle}{%
+\noindent
+\begin{minipage}{\dimexpr\textwidth+\marginparwidth+\marginparsep\relax}%
   \chapter{\RJ@title}\refstepcounter{chapter}
   \ifx\empty\RJ@subtitle
   \else
@@ -130,6 +136,7 @@
     \noindent\textit{\RJ@author}
     \par\nobreak\addvspace{\baselineskip}
   \fi
+\end{minipage}
   \@afterindentfalse\@nobreaktrue\@afterheading
 }
 
