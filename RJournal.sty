@@ -236,6 +236,15 @@
 \newcommand{\address}[1]{\addvspace{\baselineskip}\noindent\emph{#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\normalfont\texttt{#1}}}
 
+% A margin note that behaves like a foot note
+\newcounter{marginnote}% a new counter for use in margin notes
+\newcommand{\marginnote}[1]{
+  \refstepcounter{marginnote}
+  \mbox{\textsuperscript{\themarginnote}}
+  \marginpar{\mbox{\textsuperscript{\themarginnote}} {\small #1}}
+}
+
+
 % Simple font selection is not good enough.  For example, |\texttt{--}|
 % gives `\texttt{--}', i.e., an endash in typewriter font.  Hence, we
 % need to turn off ligatures, which currently only happens for commands

@@ -154,7 +154,7 @@ sexist language, such as the use of `he' for individuals of indefinite gender.
 
 The \LaTeX{} style file \file{RJournal.sty} provides a much simplified version of the
 commands for marking words and phrases used by
-Texinfo\marginpar{\url{http://www.gnu.org/software/texinfo/}} (but note that the \LaTeX{} special
+Texinfo\marginnote{\url{http://www.gnu.org/software/texinfo/}} (but note that the \LaTeX{} special
 characters still need special treatment). Please use these commands and the other
 mark-up facilities described in this section rather than attempting to format
 output and other elements visually. Unless it is absolutely necessary, please refrain from
@@ -218,9 +218,9 @@ the \verb|\pkg| command is reserved for R packages.
 
 \subsection{Quotations and examples}
 
-In addition to the standard \LaTeX{} environments for quotations and examples (such
-as \verb|quote|, \verb|quotation|, \verb|flushleft|, \verb|center| and \verb|flushright|), the
-\pkg{\filename} package provides the following environments:
+% In addition to the standard \LaTeX{} environments for quotations and examples (such
+% as \verb|quote|, \verb|quotation|, \verb|flushleft|, \verb|center| and \verb|flushright|), the
+% \pkg{\filename} package provides the following environments:
 
 \begin{description}
 
@@ -342,10 +342,10 @@ A simple table with booktabs formatting.}
 The standard way to produce citations for \emph{The R Journal} is via the
 \verb|\citep| and \verb|\citet| commands (and their relatives)
 and a \file{.bib} file that contains the
-references in {\sc Bib}\TeX{} format.\marginpar{We use the \pkg{natbib}
-package for citations.}  The citation in the first
+references in {\sc Bib}\TeX{} format\marginnote{We use the \pkg{natbib}
+package for citations.}. The citation in the first
 paragraph of this style guide is of the form
-\verb|\citep{ihaka:1996}|.  Figure \ref{figure:bibexample}
+\verb|\citep{ihaka:1996}|. Figure \ref{figure:bibexample}
 shows an example file called \file{example.bib} which contains
 a single reference.
 
