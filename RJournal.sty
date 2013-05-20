@@ -247,9 +247,9 @@
 % A margin note that behaves like a foot note
 \newcounter{marginnote}% a new counter for use in margin notes
 \newcommand{\marginnote}[1]{%
-  \refstepcounter{marginnote}%
-  \mbox{\textsuperscript{\themarginnote}}%
-  \marginpar{\raggedright \footnotesize \textsuperscript{\themarginnote} #1}
+  \refstepcounter{footnote}%
+  \mbox{\textsuperscript{\thefootnote}}%
+  \marginpar{\raggedright \footnotesize \textsuperscript{\thefootnote} #1}
 }
 
 
