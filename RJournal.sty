@@ -17,14 +17,14 @@
 
 \RequirePackage{geometry}
 \geometry{a4paper, 
-   width=17cm, top=1cm, bottom=1cm, 
-   includeall, 
-   footskip=1.5cm, marginpar=4cm, marginparsep=0.5cm}
+   textwidth=14cm, top=1cm, bottom=1cm,
+   includehead,includefoot,centering,
+   footskip=1.5cm}
 \raggedbottom
 
 \RequirePackage{fancyhdr}
-\fancyhfoffset[R]{4.5cm}
 \fancyhead{}
+\fancyheadoffset{2cm} 
 \fancyhead[L]{\textsc{\RJ@sectionhead}}
 \fancyhead[R]{\thepage}
 \fancyfoot{}
@@ -93,6 +93,8 @@
 
 \setcounter{secnumdepth}{-1}
 
+\usepackage[medium]{titlesec}
+
 % Note that we put the title info in the TOC and the bookmarks when
 % creating PDF. Thus titles should only contain text.
 
@@ -107,15 +109,13 @@
 % Refereed articles should have an abstract, so we redefine |\abstract| to
 % give the desired style
 
-\renewcommand{\abstract}[1]{
-  \noindent
-  \begin{center}
-  \begin{minipage}{\textwidth}%
-  \setstretch{1}
-  \small
-  \textbf{Abstract} #1 
-  \end{minipage}
-  \end{center}
+\renewcommand{\abstract}[1]{%
+\begin{center}%
+\setstretch{1}%
+\noindent%
+\small%
+\textbf{Abstract} #1 
+\end{center}
 }
 
 % The real work is done by a redefined version of |\maketitle|.  Note
@@ -125,7 +125,6 @@
 
 \renewcommand{\maketitle}{%
 \noindent
-\begin{minipage}{\dimexpr\textwidth+\marginparwidth+\marginparsep\relax}%
   \chapter{\RJ@title}\refstepcounter{chapter}
   \ifx\empty\RJ@subtitle
   \else
@@ -137,7 +136,6 @@
     \noindent\textit{\RJ@author}
     \par\nobreak\addvspace{\baselineskip}
   \fi
-\end{minipage}
   \@afterindentfalse\@nobreaktrue\@afterheading
 }
 
@@ -165,9 +163,9 @@
 % however we wish them to appear as chapters in the TOC. Thus we define an
 % alternative to |\maketitle| for reviews.
 \newcommand{\review}[1]{
-    \pdfbookmark[1]{#1}{#1}
-    \section*{#1}
-    \addtocontents{toc}{\protect\contentsline{chapter}{#1}{\thepage}{#1.1}}
+  \pdfbookmark[1]{#1}{#1}
+  \section*{#1}
+  \addtocontents{toc}{\protect\contentsline{chapter}{#1}{\thepage}{#1.1}}
 }
 
 % We want bibliographies as starred sections within articles.
@@ -245,15 +243,6 @@
 \newcommand{\address}[1]{\addvspace{\baselineskip}\noindent\emph{#1}}
 \newcommand{\email}[1]{\href{mailto:#1}{\normalfont\texttt{#1}}}
 
-% A margin note that behaves like a foot note
-\newcounter{marginnote}% a new counter for use in margin notes
-\newcommand{\marginnote}[1]{%
-  \refstepcounter{footnote}%
-  \mbox{\textsuperscript{\thefootnote}}%
-  \marginpar{\raggedright \footnotesize \textsuperscript{\thefootnote} #1}%
-}
-
-
 % Simple font selection is not good enough.  For example, |\texttt{--}|
 % gives `\texttt{--}', i.e., an endash in typewriter font.  Hence, we
 % need to turn off ligatures, which currently only happens for commands
@@ -265,11 +254,7 @@
 % unfortunate but should not be changed to ensure consistency.  But with
 % the advent of the WWW and the need for getting `|~|' and `|#|' into
 % URLs, commands which only treat the escape and grouping characters
-% specially have gained acceptance (in fact, this is also what
-% \pkg{alltt} does, and hence environments based on it such as our
-% |smallexample|).  Hence, in the long run we should implement the same
-% for |\code|, |\kbd|, |\samp|, |\var|, and |\file|.  (The other
-% Texinfo-style commands do not need this.)
+% specially have gained acceptance
 
 \DeclareRobustCommand\code{\bgroup\@noligs\@codex}
 \def\@codex#1{\texorpdfstring%
@@ -337,22 +322,27 @@
 % Figures ----------------------------------------------------------------------
 
 \RequirePackage[font=small,labelfont=bf,singlelinecheck=false]{caption}
-\RequirePackage{marginfix}
+
+% Wide environments for figures and tables -------------------------------------
 \RequirePackage{environ}
 
-% An easy way to put figures in the margin
-\NewEnviron{marginfig}{
-\marginpar{
-  \captionsetup{type=figure,skip=5pt}
-  \BODY
-}}
-
 % An easy way to make a figure span the full width of the page
-\NewEnviron{widefig}[1][]{
+\NewEnviron{widefigure}[1][]{
 \begin{figure}[#1]
-\parbox{\dimexpr\textwidth+\marginparwidth+\marginparsep\relax}{%
-  \captionsetup{margin={0cm,4.5cm}}
+\advance\leftskip-2cm
+\begin{minipage}{\dimexpr\textwidth+4cm\relax}%
+  \captionsetup{margin=2cm}
+  \BODY
+\end{minipage}%
+\end{figure}
+}
+
+\NewEnviron{widetable}[1][]{
+\begin{minipage}
+\begin{table}[#1]
+\parbox{\dimexpr\textwidth+4cm\relax}{%
+  \captionsetup{margin=2cm}
   \BODY
 }
-\end{figure}
+\end{table}
 }
