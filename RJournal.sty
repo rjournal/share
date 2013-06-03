@@ -335,11 +335,11 @@
 }
 
 \NewEnviron{widetable}[1][]{
-\begin{minipage}
 \begin{table}[#1]
-\parbox{\dimexpr\textwidth+4cm\relax}{%
+\advance\leftskip-2cm
+\begin{minipage}{\dimexpr\textwidth+4cm\relax}%
   \captionsetup{margin=2cm}
   \BODY
-}
+\end{minipage}%
 \end{table}
 }
