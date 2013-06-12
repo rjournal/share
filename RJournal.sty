@@ -91,9 +91,16 @@
 \renewcommand{\title}        [1]{\def\RJ@title{#1}}
 \newcommand  {\subtitle}     [1]{\def\RJ@subtitle{#1}}
 
-\setcounter{secnumdepth}{-1}
+% Control appearance of titles: make slightly smaller than usual, and 
+% suppress section numbering. See http://tex.stackexchange.com/questions/69749
+% for why we don't use \setcounter{secnumdepth}{-1} 
 
 \usepackage[medium]{titlesec}
+\usepackage{titletoc}
+\titleformat{\section}   {\normalfont\large\bfseries}{}{0em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{}{0em}{}
+\titlecontents{section}   [1.5em]{}{}{}{\titlerule*[1em]{.}\contentspage}
+\titlecontents{subsection}[3.8em]{}{}{}{\titlerule*[1em]{.}\contentspage}
 
 % Note that we put the title info in the TOC and the bookmarks when
 % creating PDF. Thus titles should only contain text.
