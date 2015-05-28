@@ -279,11 +279,13 @@
 % These used to have fontshape=sl for Sinput/Scode/Sin, but pslatex
 % won't use a condensed font in that case.
 
-\DefineVerbatimEnvironment{Sinput}{Verbatim}{fontsize=\small}
-\DefineVerbatimEnvironment{Soutput}{Verbatim}{fontsize=\small}
-\DefineVerbatimEnvironment{Scode}{Verbatim}{fontsize=\small}
-\DefineVerbatimEnvironment{Sin}{Verbatim}{fontsize=\small}
-\DefineVerbatimEnvironment{Sout}{Verbatim}{fontsize=\small}
+% Update (2015-05-28 by DS): remove fontsize=\small to match example environment
+
+\DefineVerbatimEnvironment{Sinput}{Verbatim}{}
+\DefineVerbatimEnvironment{Soutput}{Verbatim}{}
+\DefineVerbatimEnvironment{Scode}{Verbatim}{}
+\DefineVerbatimEnvironment{Sin}{Verbatim}{}
+\DefineVerbatimEnvironment{Sout}{Verbatim}{}
 \newenvironment{Schunk}{}{}
 
 % Mathematics ------------------------------------------------------------------
