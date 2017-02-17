@@ -9,3 +9,6 @@ RJournal.drv
 *.aux
 *.log
 /acceptance-letter.pdf
+*.bbl
+*.blg
+*.brf
