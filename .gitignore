@@ -6,3 +6,6 @@ RJournal.drv
 /author-guide.log
 /author-guide.out
 /auto/
+*.aux
+*.log
+/acceptance-letter.pdf
