@@ -5,6 +5,8 @@
 \usepackage[round]{natbib}
 \usepackage{hyperref}
 \usepackage{booktabs}
+\let\equation\gather % equation env can cause issues with hyperref
+\let\endequation\endgather
 \usepackage{amsmath,amssymb,array}
 \usepackage{multicol}
 \usepackage{import} % to get files from article directories
@@ -51,7 +53,7 @@
     \textbf{Email of editors and editorial board:}\\
     \texttt{\textit{firstname}.\textit{lastname}@R-project.org}
 
-    \bigskip The R Journal is indexed/abstracted by EBSCO, DOAJ, and Thomson Reuters.  
+    \bigskip The R Journal is indexed/abstracted by EBSCO and Thomson Reuters.
       
   \end{center}
     
@@ -68,10 +70,29 @@
 \sectionhead{Contributed Research Articles}
 \addtocontents{toc}{\protect\subsection*{Contributed Research Articles}\protect}
 
-% see helper.r
+% include import stanzas here
 
 \sectionhead{News and Notes}
 \addtocontents{toc}{\protect\subsection*{News and Notes}\protect}
 
+\begin{article}
+  \subimport{news/}{foundation.tex}
+\end{article}
+\newpage
+
+\begin{article}
+  \subimport{news/}{cran.tex}
+\end{article}
+\newpage
+
+\begin{article}
+  \subimport{news/}{bioc.tex}
+\end{article}
+\newpage
+
+\begin{article}
+  \subimport{news/}{ch.tex}
+\end{article}
+\newpage
 
 \end{document}
